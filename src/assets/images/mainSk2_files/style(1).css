@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?t95ugu');
+  src:  url('fonts/icomoon.eot?t95ugu#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?t95ugu') format('truetype'),
+    url('fonts/icomoon.woff?t95ugu') format('woff'),
+    url('fonts/icomoon.svg?t95ugu#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-account:before {
+  content: "\e900";
+}
+.icon-arrow .path1:before {
+  content: "\e901";
+  color: rgb(51, 62, 72);
+  opacity: 0.75;
+}
+.icon-arrow .path2:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-arrow2:before {
+  content: "\e903";
+}
+.icon-arrow3:before {
+  content: "\e904";
+}
+.icon-arrow4_mobile-banners:before {
+  content: "\e905";
+  color: #666e76;
+}
+.icon-cancel:before {
+  content: "\e906";
+}
+.icon-eyslogo .path1:before {
+  content: "\e907";
+  color: rgb(54, 176, 201);
+}
+.icon-eyslogo .path2:before {
+  content: "\e908";
+  margin-left: -3.900390625em;
+  color: rgb(54, 176, 201);
+}
+.icon-eyslogo .path3:before {
+  content: "\e909";
+  margin-left: -3.900390625em;
+  color: rgb(54, 176, 201);
+}
+.icon-eyslogo .path4:before {
+  content: "\e90a";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path5:before {
+  content: "\e90b";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path6:before {
+  content: "\e90c";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path7:before {
+  content: "\e90d";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path8:before {
+  content: "\e90e";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path9:before {
+  content: "\e90f";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path10:before {
+  content: "\e910";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path11:before {
+  content: "\e911";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path12:before {
+  content: "\e912";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path13:before {
+  content: "\e913";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path14:before {
+  content: "\e914";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path15:before {
+  content: "\e915";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path16:before {
+  content: "\e916";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path17:before {
+  content: "\e917";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path18:before {
+  content: "\e918";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path19:before {
+  content: "\e919";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path20:before {
+  content: "\e91a";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path21:before {
+  content: "\e91b";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path22:before {
+  content: "\e91c";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path23:before {
+  content: "\e91d";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-eyslogo .path24:before {
+  content: "\e91e";
+  margin-left: -3.900390625em;
+  color: rgb(51, 62, 72);
+}
+.icon-hamburger_stack:before {
+  content: "\e91f";
+}
+.icon-search:before {
+  content: "\e920";
+}
+.icon-shopping_cart:before {
+  content: "\e921";
+}
+.icon-support:before {
+  content: "\e922";
+  color: #fff;
+}

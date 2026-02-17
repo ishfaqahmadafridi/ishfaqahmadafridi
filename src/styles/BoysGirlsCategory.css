@@ -1,0 +1,112 @@
+/* ==========================================
+   BOYS & GIRLS CATEGORY - RESPONSIVE  
+   ========================================== */
+
+.boys-girls-category {
+  padding: clamp(30px, 5vw, 60px) clamp(15px, 3vw, 60px);
+  text-align: left;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+}
+
+.boys-girls-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: clamp(25px, 4vw, 40px);
+  color: var(--color-gray-900);
+  border-left: 5px solid var(--color-primary);
+  padding-left: var(--spacing-md);
+  letter-spacing: -0.02em;
+}
+
+.boys-girls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.boys-girls-item {
+  text-decoration: none;
+  color: var(--color-gray-900);
+  text-align: center;
+  transition: all var(--transition-base);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-white);
+  position: relative;
+}
+
+.boys-girls-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.05) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.boys-girls-item:hover::before {
+  opacity: 1;
+}
+
+.boys-girls-item img {
+  width: 100%;
+  height: clamp(200px, 25vw, 280px);
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.boys-girls-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
+.boys-girls-item:hover img {
+  transform: scale(1.1);
+}
+
+.boys-girls-item span {
+  display: block;
+  padding: clamp(12px, 2vw, 18px);
+  font-weight: 700;
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 2;
+  transition: all var(--transition-fast);
+}
+
+.boys-girls-item:hover span {
+  color: var(--color-primary);
+  background-color: var(--color-gray-50);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .boys-girls-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .boys-girls-category {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+/* Single Column on Very Small Screens */
+@media (max-width: 400px) {
+  .boys-girls-grid {
+    grid-template-columns: 1fr;
+  }
+}
