@@ -37,5 +37,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=ishfaqahmad&show_icons=true&locale=en" alt="ishfaqahmad" /></p>
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=ishfaqahmad&" alt="ishfaqahmad" /></p>
 >>>>>>> 03df937efb8d98587eb700e585ec4e8f9e1e0f0d
