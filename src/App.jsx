@@ -1,14 +1,12 @@
 // App.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom"; // ❌ Do not import BrowserRouter here
-import LandingPage from "./components/LandingPage";
-import Home from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/home/Home";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Home />} />
     </Routes>
   );
 }

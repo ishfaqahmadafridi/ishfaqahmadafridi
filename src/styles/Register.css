@@ -1,13 +1,13 @@
 /* =========================================
-   REGISTER PAGE - RESPONSIVE
+   REGISTER PAGE - MODERN & CLEAN
    ========================================== */
 
 .page-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--color-gray-50);
-  padding-top: 140px; /* Space for fixed header */
+  background-color: #f8f9fa;
+  padding-top: 140px;
 }
 
 .auth-page {
@@ -15,167 +15,121 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(30px, 4vw, 50px) clamp(15px, 2vw, 30px);
-  min-height: calc(100vh - 120px);
+  padding: clamp(40px, 5vw, 60px) clamp(20px, 3vw, 40px);
+  min-height: calc(100vh - 140px);
 }
 
 .auth-page h1 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  color: var(--color-gray-900);
-  margin-bottom: clamp(20px, 2.5vw, 30px);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: #000;
+  margin-bottom: clamp(35px, 4vw, 50px);
   text-align: center;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .auth-form {
   width: 100%;
-  max-width: 450px;
-  background: var(--color-white);
-  padding: clamp(30px, 4vw, 45px) clamp(25px, 3vw, 40px);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xl);
-  transition: all var(--transition-base);
-  animation: slideUp 0.5s ease-out;
-  border: 1px solid var(--color-gray-200);
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.auth-form:hover {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+  max-width: 500px;
+  background: #ffffff;
+  padding: clamp(40px, 5vw, 60px);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
 }
 
 .form-group {
-  margin-bottom: clamp(16px, 2vw, 22px);
+  margin-bottom: clamp(20px, 2.5vw, 28px);
   position: relative;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: var(--spacing-sm);
-  font-size: clamp(0.875rem, 1.2vw, 0.9rem);
+  margin-bottom: 8px;
+  font-size: clamp(0.875rem, 1.2vw, 0.95rem);
   font-weight: 600;
-  color: var(--color-gray-800);
+  color: #1f2937;
+  letter-spacing: 0.01em;
 }
 
 .form-group input {
   width: 100%;
-  padding: clamp(10px, 1.5vw, 14px) clamp(12px, 2vw, 16px);
-  font-size: clamp(0.875rem, 1.3vw, 1rem);
-  border: 2px solid var(--color-gray-300);
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
-  background-color: var(--color-gray-50);
+  padding: 14px 16px;
+  font-size: clamp(0.938rem, 1.3vw, 1rem);
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
   font-family: var(--font-family-base);
+  color: #111827;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
-  background-color: var(--color-white);
+  border-color: #000;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
 }
 
 .form-group input:hover {
-  border-color: var(--color-gray-400);
+  border-color: #9ca3af;
 }
 
 .password-hint {
   font-size: clamp(0.75rem, 1vw, 0.8rem);
-  color: var(--color-gray-600);
-  margin-top: var(--spacing-xs);
+  color: #6b7280;
+  margin-top: 6px;
   display: block;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .primary-button {
   width: 100%;
-  padding: clamp(12px, 2vw, 16px);
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  font-size: clamp(0.875rem, 1.3vw, 1rem);
-  font-weight: 700;
+  padding: 16px;
+  background-color: #000;
+  color: #ffffff;
+  font-size: clamp(0.938rem, 1.3vw, 1rem);
+  font-weight: 600;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   cursor: pointer;
-  transition: all var(--transition-base);
-  margin-top: clamp(8px, 1.5vw, 12px);
+  transition: all 0.2s ease;
+  margin-top: clamp(12px, 2vw, 16px);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  position: relative;
-  overflow: hidden;
-}
-
-.primary-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.primary-button:hover::before {
-  width: 300px;
-  height: 300px;
+  letter-spacing: 0.08em;
 }
 
 .primary-button:hover {
-  background-color: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  background-color: #1f2937;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .primary-button:active {
+  background-color: #000;
   transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .auth-link {
   text-align: center;
-  margin-top: clamp(18px, 2.5vw, 25px);
-  color: var(--color-gray-600);
-  font-size: clamp(0.875rem, 1.2vw, 0.9rem);
+  margin-top: clamp(24px, 3vw, 32px);
+  color: #6b7280;
+  font-size: clamp(0.875rem, 1.2vw, 0.95rem);
 }
 
 .auth-link a {
-  color: var(--color-primary);
+  color: #000;
   text-decoration: none;
   font-weight: 600;
-  transition: all var(--transition-fast);
-  position: relative;
-}
-
-.auth-link a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-primary);
-  transition: width var(--transition-fast);
-}
-
-.auth-link a:hover::after {
-  width: 100%;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
 }
 
 .auth-link a:hover {
-  color: var(--color-primary-hover);
+  color: #000;
+  border-bottom-color: #000;
 }
 
 /* Password strength indicator */
@@ -195,27 +149,22 @@
 }
 
 /* Responsive Design */
-@media (max-width: 480px) {
-  .auth-page {
-    padding: var(--spacing-lg) var(--spacing-md);
-  }
-  
+@media (max-width: 768px) {
   .auth-form {
-    padding: var(--spacing-lg) var(--spacing-md);
-  }
-  
-  .form-group {
-    margin-bottom: var(--spacing-md);
+    padding: 32px;
   }
 }
 
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .auth-form {
-    animation: none;
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 24px 16px;
   }
   
-  .primary-button::before {
-    display: none;
+  .auth-form {
+    padding: 28px 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
   }
 }
