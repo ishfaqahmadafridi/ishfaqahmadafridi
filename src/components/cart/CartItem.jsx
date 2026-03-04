@@ -1,32 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { cartItemShape } from './cartPropTypes';
+import CartItemImage from './CartItemImage';
+import CartItemDetails from './CartItemDetails';
+import CartItemPrice from './CartItemPrice';
+import CartItemRemove from './CartItemRemove';
 
-function CartItem({ item, removeItem, formatPrice }) {
-  return (
-    <div className="cart-item">
-      <div className="cart-item-details">
-        <h3>{item.name}</h3>
-        <p>Size: {item.size}</p>
-        <p>Price: {formatPrice(item.price)}</p>
-      </div>
-      <div className="cart-item-total">
-        {formatPrice(item.totalPrice)}
-      </div>
-      <button 
-        className="remove-item"
-        onClick={() => removeItem(item.id, item.size)}
-      >
-        ×
-      </button>
-    </div>
-  );
+export default function CartItem({ item }) {
+    return (
+        <div className="flex items-center gap-4 p-4 md:p-6 transition-colors hover:bg-gray-50 border-b last:border-b-0">
+            <CartItemImage src={item.image} name={item.name} />
+            <CartItemDetails name={item.name} size={item.size} price={item.price} quantity={item.quantity} />
+            <CartItemPrice quantity={item.quantity} price={item.price} totalPrice={item.totalPrice} />
+            <CartItemRemove id={item.id} size={item.size} />
+        </div>
+    );
 }
-
-CartItem.propTypes = {
-  item: cartItemShape.isRequired,
-  removeItem: PropTypes.func.isRequired,
-  formatPrice: PropTypes.func.isRequired
-};
-
-export default CartItem;

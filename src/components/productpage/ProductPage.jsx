@@ -1,62 +1,36 @@
-/**
- * Product Page Component
- * Main component for displaying product details
- */
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { ProductPageProvider } from './context';
-import { useProductPageState } from './hooks';
-import { createCartItem, isValidProduct } from '../operations/productpage';
-import { BackButton, ProductDetail, ErrorMessage } from './components';
-import '../../styles/ProductPage.css';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPage, selectSelectedProduct } from '../redux/slices/uiSlice/uiSlice';
+import { selectSelectedSize, selectQuantity } from '../redux/slices/product/productSlice';
+import { addToCart } from '../redux/slices/cart/cartSlice';
+import BackButton from './BackButton';
+import ProductImages from './ProductImages';
+import ProductInfo from './ProductInfo';
+import ProductDetails from './ProductDetails';
 
-function ProductPage({ product, setPage, addToCart, previousPage = 'women' }) {
-  const { 
-    selectedSize, 
-    quantity, 
-    handleSizeSelect, 
-    handleQuantityChange 
-  } = useProductPageState();
+export default function ProductPage() {
+  const dispatch = useDispatch();
+  const product = useSelector(selectSelectedProduct);
+  const selectedSize = useSelector(selectSelectedSize);
+  const quantity = useSelector(selectQuantity);
 
-  const handleBack = useCallback(() => {
-    setPage(previousPage);
-  }, [setPage, previousPage]);
+  if (!product) return <div className="pt-24 text-center">Product not found</div>;
 
-  const handleAddToCart = useCallback(() => {
-    const cartItem = createCartItem(product, selectedSize, quantity);
-    addToCart(cartItem);
-  }, [product, selectedSize, quantity, addToCart]);
-
-  if (!isValidProduct(product)) {
-    return <ErrorMessage onBack={handleBack} />;
-  }
-
-  // Convert product.image to images array if needed
-  const productWithImages = {
-    ...product,
-    images: product.images || (product.image ? [product.image, product.image, product.image] : [])
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...product, size: selectedSize, quantity }));
+    dispatch(setPage('cart'));
   };
 
   return (
-    <div className="product-page">
-      <BackButton onClick={handleBack} />
-      <ProductDetail
-        product={productWithImages}
-        selectedSize={selectedSize}
-        quantity={quantity}
-        onSizeSelect={handleSizeSelect}
-        onQuantityChange={handleQuantityChange}
-        onAddToCart={handleAddToCart}
-      />
+    <div className="max-w-7xl mx-auto px-4 pt-24 pb-12">
+      <BackButton onClick={() => dispatch(setPage('home'))} />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+        <ProductImages images={product.images || [product.image]} name={product.name} />
+        <div className="space-y-8">
+          <ProductInfo product={product} onAddToCart={handleAddToCart} />
+          <ProductDetails details={product.details} />
+        </div>
+      </div>
     </div>
   );
 }
-
-ProductPage.propTypes = {
-  product: PropTypes.object,
-  setPage: PropTypes.func.isRequired,
-  addToCart: PropTypes.func.isRequired,
-  previousPage: PropTypes.string,
-};
-
-export default ProductPage;

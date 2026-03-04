@@ -1,21 +1,14 @@
-/**
- * Landing Page Component
- * Initial welcome page with delayed enter button
- */
-import React from 'react';
-import { WelcomeText, EnterButton } from './components';
-import { useLandingPageState } from './hooks';
-import '../../styles/LandingPae.css';
 
-const LandingPage = () => {
-  const { showButton, handleEnter } = useLandingPageState();
+import WelcomeText from './WelcomeText';
+import EnterButton from './EnterButton';
+
+export default function LandingPage() {
+
 
   return (
-    <div className="landing-container">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white p-4">
       <WelcomeText />
-      <EnterButton onClick={handleEnter} show={showButton} />
+      <EnterButton   />
     </div>
   );
-};
-
-export default LandingPage;
+}

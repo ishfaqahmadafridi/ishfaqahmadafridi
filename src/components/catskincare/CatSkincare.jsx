@@ -1,35 +1,12 @@
-import PropTypes from 'prop-types';
-import '../../styles/ProductGrid.css';
-import { skincareCategories } from '../../assets/skincareData';
-import { PageHeader, SkincareCatalog } from './components';
+import React from 'react';
+import SkincareGrid from './SkincareGrid';
 
-/**
- * CatSkincare - Main skincare catalog component
- * Clean component using hooks, operations, and utils from organized folders
- * Import from: ./hooks, ./operations, ./utils when needed
- */
-function CatSkincare({ setPage, setSelectedProduct }) {
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-    setPage("product");
-  };
-
+export default function CatSkincare() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        <PageHeader title="Skincare Collection" />
-        <SkincareCatalog
-          categories={skincareCategories}
-          onProductClick={handleProductClick}
-        />
+    <div className="bg-emerald-50/30 min-h-screen pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <SkincareGrid />
       </div>
     </div>
   );
 }
-
-CatSkincare.propTypes = {
-  setPage: PropTypes.func.isRequired,
-  setSelectedProduct: PropTypes.func.isRequired,
-};
-
-export default CatSkincare;

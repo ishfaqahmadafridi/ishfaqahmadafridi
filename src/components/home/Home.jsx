@@ -1,41 +1,33 @@
-import React from "react";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
-import { useHomeState } from "./hooks";
-import { createPageRoutes } from "./utils";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentPage, selectIsSearchDialogOpen, setSearchDialogOpen } from '../redux/slices/uiSlice/uiSlice';
+import Header from '../header/Header';
+import Footer from '../footer/Footer';
+import HomeContent from './HomeContent';
+import SearchDialog from '../search/SearchDialog';
 
 export default function Home() {
-  const {
-    page,
-    setPage,
-    selectedProduct,
-    setSelectedProduct,
-    cartItems,
-    previousPage,
-    addToCart,
-    updateCartItemQuantity,
-    removeFromCart,
-    handlePageChange,
-    cartItemCount,
-  } = useHomeState();
+  const dispatch = useDispatch();
+  const currentPage = useSelector(selectCurrentPage);
+  const isSearchDialogOpen = useSelector(selectIsSearchDialogOpen);
+  const isAdminPage = currentPage === 'admin';
 
-  const pages = createPageRoutes({
-    setPage,
-    handlePageChange,
-    cartItems,
-    updateCartItemQuantity,
-    removeFromCart,
-    selectedProduct,
-    setSelectedProduct,
-    addToCart,
-    previousPage,
-  });
+  // Render admin panel without header/footer for full screen experience
+  if (isAdminPage) {
+    return <HomeContent page={currentPage} />;
+  }
 
   return (
-    <>
-      <Header setPage={setPage} cartItemCount={cartItemCount} />
-      {pages[page] || pages.home}
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="grow">
+        <HomeContent page={currentPage} />
+      </main>
       <Footer />
-    </>
+      <SearchDialog 
+        isOpen={isSearchDialogOpen} 
+        onClose={() => dispatch(setSearchDialogOpen(false))} 
+      />
+    </div>
   );
 }

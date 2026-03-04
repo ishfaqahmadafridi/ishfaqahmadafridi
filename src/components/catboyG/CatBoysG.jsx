@@ -1,33 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import '../../styles/ProductGrid.css';
-import CategorySection from './components/CategorySection';
-import { categories } from '../../assets/catBoysGData';
-import { formatPrice } from '../utils/catBoyG';
+import CategoryGrid from './CategoryGrid';
 
-function CatBoysG({ setPage, setSelectedProduct }) {
+export default function CatBoysG({ setPage, setSelectedProduct }) {
   const handleProductClick = (product) => {
     setSelectedProduct(product);
     setPage("product");
   };
 
   return (
-    <div className="product-grid">
-      {categories.map((category) => (
-        <CategorySection
-          key={category.id}
-          category={category}
-          onProductClick={handleProductClick}
-          formatPrice={formatPrice}
-        />
-      ))}
+    <div className="bg-gray-50 min-h-screen pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <CategoryGrid onProductClick={handleProductClick} />
+      </div>
     </div>
   );
 }
-
-CatBoysG.propTypes = {
-  setPage: PropTypes.func.isRequired,
-  setSelectedProduct: PropTypes.func.isRequired
-};
-
-export default CatBoysG;

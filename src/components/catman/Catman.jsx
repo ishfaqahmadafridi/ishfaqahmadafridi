@@ -1,35 +1,37 @@
-import PropTypes from 'prop-types';
-import '../../styles/ProductGrid.css';
-import { menCategories } from '../../assets/menData';
-import { PageHeader, MenCatalog } from './components';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectSelectedCategory, setSelectedCategory } from '../redux/slices/uiSlice/uiSlice';
+import { selectMenCategories } from '../redux/slices/men/menSlice';
+import MenGrid from './MenGrid';
 
-/**
- * Catman - Main men's catalog component
- * Clean component using hooks, operations, and utils from organized folders
- * Import from: ./hooks, ./operations, ./utils when needed
- */
-function Catman({ setPage, setSelectedProduct }) {
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-    setPage("product");
+export default function Catman() {
+  const dispatch = useDispatch();
+  const selectedCategory = useSelector(selectSelectedCategory);
+  const categories = useSelector(selectMenCategories);
+
+  const currentCategory = categories.find(cat => cat.id === selectedCategory);
+  const title = currentCategory ? currentCategory.name : 'All Men Categories';
+
+  const handleShowAll = () => {
+    dispatch(setSelectedCategory(null));
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        <PageHeader title="Men's Collection" />
-        <MenCatalog
-          categories={menCategories}
-          onProductClick={handleProductClick}
-        />
+    <div className="bg-gray-50 min-h-screen pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-black uppercase tracking-tighter">{title}</h1>
+          {selectedCategory && (
+            <button
+              onClick={handleShowAll}
+              className="text-sm font-bold uppercase tracking-wider hover:underline"
+            >
+              View All Categories
+            </button>
+          )}
+        </div>
+        <MenGrid />
       </div>
     </div>
   );
 }
-
-Catman.propTypes = {
-  setPage: PropTypes.func.isRequired,
-  setSelectedProduct: PropTypes.func.isRequired,
-};
-
-export default Catman;

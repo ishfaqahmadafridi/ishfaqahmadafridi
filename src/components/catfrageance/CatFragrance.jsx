@@ -1,34 +1,12 @@
-import PropTypes from 'prop-types';
-import '../../styles/ProductGrid.css';
-import { fragranceCategories } from '../../assets/fragranceData';
-import { PageHeader, FragranceCatalog } from './components';
+import React from 'react';
+import FragranceGrid from './FragranceGrid';
 
-/**
- * CatFragrance - Main fragrance catalog component
- * Clean component using PageHeader and FragranceCatalog
- */
-function CatFragrance({ setPage, setSelectedProduct }) {
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-    setPage("product");
-  };
-
+export default function CatFragrance() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        <PageHeader title="Fragrance Collection" />
-        <FragranceCatalog
-          categories={fragranceCategories}
-          onProductClick={handleProductClick}
-        />
+    <div className="bg-white min-h-screen pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <FragranceGrid />
       </div>
     </div>
   );
 }
-
-CatFragrance.propTypes = {
-  setPage: PropTypes.func.isRequired,
-  setSelectedProduct: PropTypes.func.isRequired,
-};
-
-export default CatFragrance;
