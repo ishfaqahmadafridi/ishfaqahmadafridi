@@ -2,8 +2,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setPage } from '../redux/slices/uiSlice/uiSlice';
 import { categories } from '../../assets/categoriesList';
+import { CategorySectionProps } from '../interfaces/actegorysection/categorySectionInterface';
 
-export default function CategorySection() {
+export default function CategorySection({}: CategorySectionProps) {
   const dispatch = useDispatch();
   return (
     <div className="bg-gray-50 py-16 px-6">
