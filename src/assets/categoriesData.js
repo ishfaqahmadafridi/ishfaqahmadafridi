@@ -1,11 +1,11 @@
-import teenBoys from "./teenBoys.jpg";
-import teenGirls from "./teenGirls.jpg";
-import kidsBoys from "./kidBoys.jpg";
-import kidsGirls from "./kidGirls.jpg";
+import teenBoys from "./images/kids/teenBoys.jpg";
+import teenGirls from "./images/kids/teenGirls.jpg";
+import kidsBoys from "./images/kids/kidBoys.jpg";
+import kidsGirls from "./images/kids/kidGirls.jpg";
 
 export const categories = [
-  { name: "Teen Boys", image: teenBoys, link: "#" },
-  { name: "Teen Girls", image: teenGirls, link: "#" },
-  { name: "Kids Boys", image: kidsBoys, link: "#" },
-  { name: "Kids Girls", image: kidsGirls, link: "#" }
+  { name: "Teen Boys", image: teenBoys, key: "teenboys", subcategories: ["teenboysclothes", "teenboysshoes"] },
+  { name: "Teen Girls", image: teenGirls, key: "teengirls", subcategories: ["teengirlsclothes", "teengirlsshoes"] },
+  { name: "Kids Boys", image: kidsBoys, key: "kidsboys", subcategories: ["boysshirt", "boysshalwar", "boysshoes"] },
+  { name: "Kids Girls", image: kidsGirls, key: "kidsgirls", subcategories: ["girlsclothes", "girlsshirt", "girlsshoes"] }
 ];

@@ -1,367 +1,731 @@
 // Import all images
-import main1 from '../assets/images/kidB.webp';
-import img1 from '../assets/images/imgB1.webp';
-import img2 from '../assets/images/imgB2.webp';
-import img3 from '../assets/images/imgB3.webp';
-import img4 from '../assets/images/imgB4.webp';
 
-import main2 from '../assets/images/kidg.webp';
-import imgS1 from '../assets/images/imgk1.webp';
-import imgS2 from '../assets/images/imgk2.webp';
-import imgS3 from '../assets/images/imgk3.webp';
-import imgS4 from '../assets/images/imgk4.webp';
+// Teen Boys
+import mainTeenBoys from './images/kids/teenboy(1).jfif';
+import teenBoy1 from './images/kids/teenboy(2).jfif';
+import teenBoy2 from './images/kids/teenboy(3).jfif';
+import teenBoy3 from './images/kids/teenboy(4).jfif';
+import teenBoy4 from './images/kids/teenboy(5).jfif';
 
-import main4 from '../assets/images/main4.webp';
-import imgP1 from '../assets/images/imgP1.webp';
-import imgP2 from '../assets/images/imgP2.webp';
-import imgP3 from '../assets/images/imgP3.webp';
-import imgP4 from '../assets/images/imgP4.webp';
+// Teen Girls
+import mainTeenGirls from './images/kids/teengirl(1).jfif';
+import teenGirl1 from './images/kids/teengirls(2).jfif';
+import teenGirl2 from './images/kids/teengirl(3).jfif';
+import teenGirl3 from './images/kids/teengirls(4).jfif';
+import teenGirl4 from './images/kids/teengirls(5).jfif';
 
-import main5 from '../assets/images/main5.webp';
-import imgD1 from '../assets/images/imgD1.webp';
-import imgD2 from '../assets/images/imgD2.webp';
-import imgD3 from '../assets/images/imgD3.webp';
-import imgD4 from '../assets/images/imgD4.webp';
+// Boys Shirts
+import mainBoysShirt from './images/kids/shirtboy (1).webp';
+import boyShirt1 from './images/kids/shirtboy (2).webp';
+import boyShirt2 from './images/kids/shirtboy (3).webp';
+import boyShirt3 from './images/kids/shirtboy (4).webp';
+import boyShirt4 from './images/kids/shirtboy (1).webp';
 
-import main6 from '../assets/images/main6.webp';
-import imgG1 from '../assets/images/imgG1.webp';
-import imgG2 from '../assets/images/imgG2.webp';
-import imgG3 from '../assets/images/imgG3.webp';
-import imgG4 from '../assets/images/imgG4.webp';
+// Boys Shalwar
+import mainBoysShalwar from './images/kids/shalwarboy.webp';
+import boyShalwar1 from './images/kids/shalwarboy(4).webp';
+import boyShalwar2 from './images/kids/shalwarboy(5).webp';
+import boyShalwar3 from './images/kids/shalwarboy(6).webp';
+import boyShalwar4 from './images/kids/shalwarboy.webp';
+
+// Boys Shoes
+import mainBoysShoes from './images/kids/boysshoes.jfif';
+import boyShoe1 from './images/kids/boysShoes(1).jfif';
+import boyShoe2 from './images/kids/boysShoes(2).jfif';
+import boyShoe3 from './images/kids/boysShoes(4).jfif';
+import boyShoe4 from './images/kids/boysshoes.jfif';
+
+// Girls Clothes
+import mainGirlsClothes from './images/kids/girlclothes.webp';
+import girlCloth1 from './images/kids/girlClothes (1).webp';
+import girlCloth2 from './images/kids/girlClothes (2).webp';
+import girlCloth3 from './images/kids/girlClothes (3).webp';
+import girlCloth4 from './images/kids/girlClothes (4).webp';
+
+// Girls Shirts
+import mainGirlsShirt from './images/kids/girlsShirt (1).webp';
+import girlShirt1 from './images/kids/girlsShirt (2).webp';
+import girlShirt2 from './images/kids/girlsShirt (3).webp';
+import girlShirt3 from './images/kids/girlsShirt (4).webp';
+import girlShirt4 from './images/kids/girlsShirt (1).webp';
+
+// Girls Shoes
+import mainGirlsShoes from './images/kids/girlsshoes4 (1).webp';
+import girlShoe1 from './images/kids/girlsshoes4 (2).webp';
+import girlShoe2 from './images/kids/girlsshoes4 (1).jpeg';
+import girlShoe3 from './images/kids/girlsshoes4 (2).jpeg';
+import girlShoe4 from './images/kids/girlsshoes4 (1).webp';
 
 export const categories = [
   {
-    id: 'shirts',
-    name: 'Shirts',
-    heroImage: main1,
+    id: 'teenboysclothes',
+    name: 'Teen Boys Clothes',
+    heroImage: mainTeenBoys,
     products: [
       {
         id: 1,
-        name: "Poly Combric Printed Shirt USTK-285",
-        price: 2514,
-        originalPrice: 4190,
-        discount: "40% OFF",
-        image: img1,
+        name: "Teen Boys Casual Outfit TBC-001",
+        price: 3200,
+        originalPrice: 4000,
+        discount: "20% OFF",
+        sale: true,
+        image: teenBoy1,
         details: {
-          fitType: "Relaxed",
-          designDetails: "Striped tunic with batwing sleeves",
-          material: "80% Rayon, 20% Nylon",
-          modelInfo: "165.1 cm/5'5\" wears size SMALL"
+          fitType: "Regular",
+          designDetails: "Stylish casual wear for teenage boys",
+          material: "100% Cotton",
+          modelInfo: "Ages 13-16, Sizes M-XL"
         },
-        careInstructions: "Machine wash cold, gentle cycle. Do not bleach. Lay flat to dry."
+        careInstructions: "Machine wash cold, gentle cycle. Do not bleach."
       },
       {
         id: 2,
-        name: "Poly Combric Printed Co-Ord Set IPS",
-        price: 3743,
-        originalPrice: 4990,
-        discount: "25% OFF",
-        image: img2,
+        name: "Teen Boys Sport Set TBC-002",
+        price: 3800,
+        originalPrice: 4750,
+        discount: "20% OFF",
+        sale: true,
+        image: teenBoy2,
         details: {
-          fitType: "Regular",
-          designDetails: "Printed co-ord set with matching top and bottom",
-          material: "100% Polyester",
-          modelInfo: "170 cm/5'7\" wears size MEDIUM"
+          fitType: "Athletic",
+          designDetails: "Comfortable sportswear for active teens",
+          material: "Polyester Blend",
+          modelInfo: "Ages 13-17, Sizes S-XL"
         },
         careInstructions: "Machine wash cold. Tumble dry low."
       },
       {
         id: 3,
-        name: "Poly Combric Printed Shirt IPS-44500",
-        price: 2243,
-        originalPrice: 2990,
-        discount: "25% OFF",
-        image: img3,
+        name: "Teen Boys Denim Set TBC-003",
+        price: 4200,
+        originalPrice: 5250,
+        discount: "20% OFF",
+        image: teenBoy3,
         details: {
           fitType: "Slim",
-          designDetails: "Printed shirt with button-down collar",
-          material: "65% Polyester, 35% Cotton",
-          modelInfo: "168 cm/5'6\" wears size SMALL"
+          designDetails: "Modern denim outfit with trendy cut",
+          material: "Cotton Denim",
+          modelInfo: "Ages 14-18, Sizes M-L"
         },
-        careInstructions: "Machine wash warm. Do not iron print directly."
+        careInstructions: "Machine wash cold inside out. Hang dry."
       },
       {
         id: 4,
-        name: "Poly Combric Printed Shirt IPS-44400",
-        price: 2243,
-        originalPrice: 2990,
-        discount: "25% OFF",
-        image: img4,
+        name: "Teen Boys Party Wear TBC-004",
+        price: 4500,
+        originalPrice: 5625,
+        discount: "20% OFF",
+        image: teenBoy4,
         details: {
-          fitType: "Oversized",
-          designDetails: "Printed shirt with drop shoulders",
-          material: "70% Polyester, 30% Viscose",
-          modelInfo: "172 cm/5'8\" wears size MEDIUM"
+          fitType: "Regular",
+          designDetails: "Stylish party outfit for special occasions",
+          material: "Cotton Blend",
+          modelInfo: "Ages 13-17, Sizes S-XL"
         },
-        careInstructions: "Hand wash recommended. Lay flat to dry."
+        careInstructions: "Hand wash recommended. Iron on medium heat."
       }
     ]
   },
   {
-    id: 'shoes',
-    name: 'Shoes',
-    heroImage: main2,
+    id: 'teenboysshoes',
+    name: 'Teen Boys Shoes',
+    heroImage: teenBoy1,
     products: [
       {
         id: 5,
-        name: "Casual Sneakers SHO-001",
-        price: 3500,
-        originalPrice: 5000,
-        discount: "30% OFF",
-        image: imgS1,
+        name: "Teen Boys Sneakers TBS-001",
+        price: 3200,
+        originalPrice: 4000,
+        discount: "20% OFF",
+        image: boyShoe1,
         details: {
-          fitType: "Regular",
-          designDetails: "Lace-up sneakers with cushioned soles",
-          material: "100% Cotton Canvas",
-          modelInfo: "EU 38-43 available"
+          fitType: "Athletic",
+          designDetails: "Trendy sneakers for teenage boys",
+          material: "Canvas and Rubber",
+          modelInfo: "Sizes 7-11 Youth"
         },
         careInstructions: "Wipe clean with damp cloth. Air dry."
       },
       {
         id: 6,
-        name: "Running Shoes SHO-002",
-        price: 4200,
-        originalPrice: 6000,
-        discount: "30% OFF",
-        image: imgS2,
+        name: "Teen Boys Sport Shoes TBS-002",
+        price: 3500,
+        originalPrice: 4375,
+        discount: "20% OFF",
+        image: boyShoe2,
         details: {
           fitType: "Athletic",
-          designDetails: "Lightweight running shoes with breathable mesh",
-          material: "Mesh and synthetic leather",
-          modelInfo: "EU 36-44 available"
+          designDetails: "Performance shoes for active teens",
+          material: "Mesh and Synthetic",
+          modelInfo: "Sizes 6-11 Youth"
         },
-        careInstructions: "Machine wash cold. Air dry."
+        careInstructions: "Machine wash gentle. Air dry."
       },
       {
         id: 7,
-        name: "Formal Loafers SHO-003",
-        price: 3800,
-        originalPrice: 4750,
+        name: "Teen Boys Casual Shoes TBS-003",
+        price: 3000,
+        originalPrice: 3750,
         discount: "20% OFF",
-        image: imgS3,
+        image: boyShoe3,
         details: {
-          fitType: "Slim",
-          designDetails: "Slip-on loafers with polished finish",
-          material: "Genuine leather",
-          modelInfo: "EU 37-42 available"
+          fitType: "Casual",
+          designDetails: "Versatile shoes for everyday wear",
+          material: "Canvas and Rubber",
+          modelInfo: "Sizes 7-12 Youth"
         },
-        careInstructions: "Use leather conditioner. Polish regularly."
+        careInstructions: "Wipe clean. Avoid soaking."
       },
       {
         id: 8,
-        name: "Hiking Boots SHO-004",
-        price: 5200,
-        originalPrice: 6500,
+        name: "Teen Boys Running Shoes TBS-004",
+        price: 3800,
+        originalPrice: 4750,
         discount: "20% OFF",
-        image: imgS4,
+        image: boyShoe4,
         details: {
-          fitType: "Wide",
-          designDetails: "Waterproof hiking boots with ankle support",
-          material: "Suede and rubber",
-          modelInfo: "EU 38-45 available"
+          fitType: "Performance",
+          designDetails: "Lightweight running shoes with cushioning",
+          material: "Breathable Mesh",
+          modelInfo: "Sizes 6-11 Youth"
         },
-        careInstructions: "Brush off dirt. Use waterproofing spray."
+        careInstructions: "Hand wash. Air dry only."
       }
     ]
   },
   {
-    id: 'pants',
-    name: 'Pants',
-    heroImage: main4,
+    id: 'teengirlsclothes',
+    name: 'Teen Girls Clothes',
+    heroImage: mainTeenGirls,
     products: [
       {
         id: 9,
-        name: "Slim Fit Chinos PAN-001",
-        price: 2200,
-        originalPrice: 2750,
+        name: "Teen Girls Casual Dress TGC-001",
+        price: 3500,
+        originalPrice: 4375,
         discount: "20% OFF",
-        image: imgP1,
+        image: teenGirl1,
         details: {
-          fitType: "Slim",
-          designDetails: "Tailored chinos with front pockets",
-          material: "98% Cotton, 2% Spandex",
-          modelInfo: "Waist 28-38 available"
+          fitType: "Regular",
+          designDetails: "Trendy casual dress for teenage girls",
+          material: "Cotton Blend",
+          modelInfo: "Ages 13-16, Sizes S-L"
         },
-        careInstructions: "Machine wash cold. Tumble dry low."
+        careInstructions: "Machine wash cold. Line dry."
       },
       {
         id: 10,
-        name: "Cargo Pants PAN-002",
-        price: 2800,
-        originalPrice: 3500,
+        name: "Teen Girls Party Outfit TGC-002",
+        price: 4200,
+        originalPrice: 5250,
         discount: "20% OFF",
-        image: imgP2,
+        image: teenGirl2,
         details: {
-          fitType: "Relaxed",
-          designDetails: "Utility pants with multiple pockets",
-          material: "100% Cotton",
-          modelInfo: "Waist 30-40 available"
+          fitType: "Fitted",
+          designDetails: "Elegant party wear with modern design",
+          material: "Polyester and Spandex",
+          modelInfo: "Ages 13-17, Sizes XS-L"
         },
-        careInstructions: "Machine wash warm. Do not bleach."
+        careInstructions: "Hand wash recommended. Lay flat to dry."
       },
       {
         id: 11,
-        name: "Wide Leg Trousers PAN-003",
-        price: 2600,
-        originalPrice: 3250,
+        name: "Teen Girls Ethnic Wear TGC-003",
+        price: 3900,
+        originalPrice: 4875,
         discount: "20% OFF",
-        image: imgP3,
+        image: teenGirl3,
         details: {
-          fitType: "Wide",
-          designDetails: "Flowy trousers with high waist",
-          material: "Viscose and Polyester",
-          modelInfo: "Waist 26-36 available"
+          fitType: "Traditional",
+          designDetails: "Beautiful ethnic outfit for festive occasions",
+          material: "Cotton Silk",
+          modelInfo: "Ages 14-18, Sizes S-XL"
         },
         careInstructions: "Dry clean recommended."
       },
       {
         id: 12,
-        name: "Denim Jeans PAN-004",
-        price: 2900,
-        originalPrice: 3625,
+        name: "Teen Girls Summer Set TGC-004",
+        price: 3600,
+        originalPrice: 4500,
         discount: "20% OFF",
-        image: imgP4,
+        image: teenGirl4,
         details: {
-          fitType: "Regular",
-          designDetails: "Classic five-pocket jeans",
-          material: "100% Cotton Denim",
-          modelInfo: "Waist 28-38 available"
+          fitType: "Relaxed",
+          designDetails: "Cool summer outfit with breathable fabric",
+          material: "100% Cotton",
+          modelInfo: "Ages 13-17, Sizes M-L"
         },
-        careInstructions: "Machine wash cold inside out. Hang dry."
+        careInstructions: "Machine wash cold. Tumble dry low."
       }
     ]
   },
   {
-    id: 'dresses',
-    name: 'Dresses',
-    heroImage: main5,
+    id: 'teengirlsshoes',
+    name: 'Teen Girls Shoes',
+    heroImage: teenGirl1,
     products: [
       {
         id: 13,
-        name: "Floral Summer Dress DRS-001",
+        name: "Teen Girls Sneakers TGS-001",
         price: 3200,
         originalPrice: 4000,
         discount: "20% OFF",
-        image: imgD1,
+        image: girlShoe1,
         details: {
-          fitType: "A-line",
-          designDetails: "Knee-length dress with floral print",
-          material: "100% Cotton",
-          modelInfo: "Sizes XS-XL available"
+          fitType: "Trendy",
+          designDetails: "Stylish sneakers for teenage girls",
+          material: "Canvas and Synthetic",
+          modelInfo: "Sizes 5-9 Youth"
         },
-        careInstructions: "Machine wash cold. Line dry."
+        careInstructions: "Wipe with damp cloth. Air dry."
       },
       {
         id: 14,
-        name: "Bodycon Party Dress DRS-002",
-        price: 3800,
-        originalPrice: 4750,
-        discount: "20% OFF",
-        image: imgD2,
-        details: {
-          fitType: "Bodycon",
-          designDetails: "Sleeveless dress with ruched details",
-          material: "95% Polyester, 5% Spandex",
-          modelInfo: "Sizes XS-L available"
-        },
-        careInstructions: "Hand wash recommended. Lay flat to dry."
-      },
-      {
-        id: 15,
-        name: "Maxi Evening Dress DRS-003",
-        price: 4500,
-        originalPrice: 5625,
-        discount: "20% OFF",
-        image: imgD3,
-        details: {
-          fitType: "Flow",
-          designDetails: "Floor-length dress with slit",
-          material: "Chiffon and Polyester",
-          modelInfo: "Sizes S-XL available"
-        },
-        careInstructions: "Dry clean only."
-      },
-      {
-        id: 16,
-        name: "Shirt Dress DRS-004",
+        name: "Teen Girls Casual Shoes TGS-002",
         price: 2900,
         originalPrice: 3625,
         discount: "20% OFF",
-        image: imgD4,
+        image: girlShoe2,
         details: {
-          fitType: "Oversized",
-          designDetails: "Button-down dress with belt",
-          material: "Linen and Cotton",
-          modelInfo: "Sizes S-L available"
+          fitType: "Casual",
+          designDetails: "Comfortable shoes for daily wear",
+          material: "Synthetic Leather",
+          modelInfo: "Sizes 5-9 Youth"
         },
-        careInstructions: "Machine wash cold. Iron on low heat."
+        careInstructions: "Wipe clean. Keep dry."
+      },
+      {
+        id: 15,
+        name: "Teen Girls Party Shoes TGS-003",
+        price: 3500,
+        originalPrice: 4375,
+        discount: "20% OFF",
+        image: girlShoe3,
+        details: {
+          fitType: "Elegant",
+          designDetails: "Fancy shoes for special occasions",
+          material: "Patent Leather",
+          modelInfo: "Sizes 4-8 Youth"
+        },
+        careInstructions: "Polish regularly. Store properly."
+      },
+      {
+        id: 16,
+        name: "Teen Girls Sport Shoes TGS-004",
+        price: 3800,
+        originalPrice: 4750,
+        discount: "20% OFF",
+        image: girlShoe4,
+        details: {
+          fitType: "Athletic",
+          designDetails: "Comfortable athletic shoes with support",
+          material: "Mesh and Rubber",
+          modelInfo: "Sizes 5-9 Youth"
+        },
+        careInstructions: "Machine wash gentle. Air dry."
       }
     ]
   },
   {
-    id: 'glasses',
-    name: 'Glasses',
-    heroImage: main6,
+    id: 'boysshirt',
+    name: 'Boys Shirts',
+    heroImage: mainBoysShirt,
     products: [
       {
         id: 17,
-        name: "Aviator Sunglasses GLS-001",
+        name: "Boys Casual Shirt BS-001",
         price: 1800,
         originalPrice: 2250,
         discount: "20% OFF",
-        image: imgG1,
+        image: boyShirt1,
         details: {
-          fitType: "Universal",
-          designDetails: "Classic metal frame with UV protection",
-          material: "Metal and glass lenses",
-          modelInfo: "One size fits most"
+          fitType: "Regular",
+          designDetails: "Comfortable casual shirt for boys",
+          material: "100% Cotton",
+          modelInfo: "Ages 6-12, Sizes S-L"
         },
-        careInstructions: "Clean with microfiber cloth. Store in case."
+        careInstructions: "Machine wash cold. Iron on medium heat."
       },
       {
         id: 18,
-        name: "Round Frame Glasses GLS-002",
-        price: 1600,
-        originalPrice: 2000,
+        name: "Boys Formal Shirt BS-002",
+        price: 2200,
+        originalPrice: 2750,
         discount: "20% OFF",
-        image: imgG2,
+        image: boyShirt2,
         details: {
-          fitType: "Narrow",
-          designDetails: "Vintage-inspired round frames",
-          material: "Acetate",
-          modelInfo: "Available in narrow and regular fit"
+          fitType: "Slim",
+          designDetails: "Smart formal shirt for special occasions",
+          material: "Cotton Blend",
+          modelInfo: "Ages 7-13, Sizes M-XL"
         },
-        careInstructions: "Rinse under water. Dry with soft cloth."
+        careInstructions: "Machine wash warm. Iron while damp."
       },
       {
         id: 19,
-        name: "Cat-Eye Sunglasses GLS-003",
-        price: 2000,
-        originalPrice: 2500,
+        name: "Boys Printed Shirt BS-003",
+        price: 1900,
+        originalPrice: 2375,
         discount: "20% OFF",
-        image: imgG3,
+        image: boyShirt3,
         details: {
-          fitType: "Wide",
-          designDetails: "Feminine cat-eye shape with gradient lenses",
-          material: "Acetate and polycarbonate",
-          modelInfo: "Available in two sizes"
+          fitType: "Regular",
+          designDetails: "Fun printed shirt with vibrant colors",
+          material: "Polyester Cotton",
+          modelInfo: "Ages 5-11, Sizes S-L"
         },
-        careInstructions: "Avoid leaving in hot cars. Store properly."
+        careInstructions: "Cold wash. Do not iron on print."
       },
       {
         id: 20,
-        name: "Rectangular Reading Glasses GLS-004",
+        name: "Boys Polo Shirt BS-004",
+        price: 2000,
+        originalPrice: 2500,
+        discount: "20% OFF",
+        image: boyShirt4,
+        details: {
+          fitType: "Classic",
+          designDetails: "Classic polo shirt for everyday wear",
+          material: "Cotton Pique",
+          modelInfo: "Ages 6-12, Sizes M-L"
+        },
+        careInstructions: "Machine wash cold. Tumble dry low."
+      }
+    ]
+  },
+  {
+    id: 'boysshalwar',
+    name: 'Boys Shalwar Kameez',
+    heroImage: mainBoysShalwar,
+    products: [
+      {
+        id: 21,
+        name: "Boys Shalwar Kameez BSK-001",
+        price: 2800,
+        originalPrice: 3500,
+        discount: "20% OFF",
+        image: boyShalwar1,
+        details: {
+          fitType: "Traditional",
+          designDetails: "Traditional shalwar kameez for boys",
+          material: "Premium Cotton",
+          modelInfo: "Ages 6-14, Sizes S-XL"
+        },
+        careInstructions: "Machine wash cold. Iron on medium heat."
+      },
+      {
+        id: 22,
+        name: "Boys Formal Shalwar Kameez BSK-002",
+        price: 3200,
+        originalPrice: 4000,
+        discount: "20% OFF",
+        image: boyShalwar2,
+        details: {
+          fitType: "Formal",
+          designDetails: "Elegant shalwar kameez for special occasions",
+          material: "Cotton Silk",
+          modelInfo: "Ages 7-15, Sizes M-XL"
+        },
+        careInstructions: "Dry clean recommended."
+      },
+      {
+        id: 23,
+        name: "Boys Embroidered Shalwar Kameez BSK-003",
+        price: 3500,
+        originalPrice: 4375,
+        discount: "20% OFF",
+        image: boyShalwar3,
+        details: {
+          fitType: "Designer",
+          designDetails: "Beautifully embroidered shalwar kameez",
+          material: "Cotton with Embroidery",
+          modelInfo: "Ages 6-14, Sizes S-L"
+        },
+        careInstructions: "Hand wash recommended. Air dry."
+      },
+      {
+        id: 24,
+        name: "Boys Casual Shalwar Kameez BSK-004",
+        price: 2600,
+        originalPrice: 3250,
+        discount: "20% OFF",
+        image: boyShalwar4,
+        details: {
+          fitType: "Regular",
+          designDetails: "Comfortable daily wear shalwar kameez",
+          material: "100% Cotton",
+          modelInfo: "Ages 5-13, Sizes S-XL"
+        },
+        careInstructions: "Machine wash cold. Line dry."
+      }
+    ]
+  },
+  {
+    id: 'boysshoes',
+    name: 'Boys Shoes',
+    heroImage: mainBoysShoes,
+    products: [
+      {
+        id: 25,
+        name: "Boys Sneakers BSH-001",
+        price: 2500,
+        originalPrice: 3125,
+        discount: "20% OFF",
+        image: boyShoe1,
+        details: {
+          fitType: "Athletic",
+          designDetails: "Comfortable sneakers for active boys",
+          material: "Canvas and Rubber",
+          modelInfo: "Sizes 1-6 Youth"
+        },
+        careInstructions: "Wipe clean with damp cloth. Air dry."
+      },
+      {
+        id: 26,
+        name: "Boys School Shoes BSH-002",
+        price: 2800,
+        originalPrice: 3500,
+        discount: "20% OFF",
+        image: boyShoe2,
+        details: {
+          fitType: "Formal",
+          designDetails: "Durable school shoes with lace-up design",
+          material: "Synthetic Leather",
+          modelInfo: "Sizes 12-5 Youth"
+        },
+        careInstructions: "Polish regularly. Store in dry place."
+      },
+      {
+        id: 27,
+        name: "Boys Sport Shoes BSH-003",
+        price: 3200,
+        originalPrice: 4000,
+        discount: "20% OFF",
+        image: boyShoe3,
+        details: {
+          fitType: "Athletic",
+          designDetails: "Lightweight sport shoes with cushioning",
+          material: "Mesh and Synthetic",
+          modelInfo: "Sizes 1-6 Youth"
+        },
+        careInstructions: "Machine wash on gentle. Air dry."
+      },
+      {
+        id: 28,
+        name: "Boys Casual Shoes BSH-004",
+        price: 2400,
+        originalPrice: 3000,
+        discount: "20% OFF",
+        image: boyShoe4,
+        details: {
+          fitType: "Casual",
+          designDetails: "Versatile casual shoes for everyday wear",
+          material: "Canvas",
+          modelInfo: "Sizes 13-5 Youth"
+        },
+        careInstructions: "Wipe clean. Avoid soaking in water."
+      }
+    ]
+  },
+  {
+    id: 'girlsclothes',
+    name: 'Girls Clothes',
+    heroImage: mainGirlsClothes,
+    products: [
+      {
+        id: 29,
+        name: "Girls Party Dress GC-001",
+        price: 3200,
+        originalPrice: 4000,
+        discount: "20% OFF",
+        image: girlCloth1,
+        details: {
+          fitType: "Princess",
+          designDetails: "Beautiful party dress with layers",
+          material: "Polycotton and Net",
+          modelInfo: "Ages 4-12, Sizes XS-L"
+        },
+        careInstructions: "Hand wash recommended. Hang to dry."
+      },
+      {
+        id: 30,
+        name: "Girls Fancy Outfit GC-002",
+        price: 3800,
+        originalPrice: 4750,
+        discount: "20% OFF",
+        image: girlCloth2,
+        details: {
+          fitType: "Fancy",
+          designDetails: "Elegant fancy dress for special occasions",
+          material: "Satin and Lace",
+          modelInfo: "Ages 5-13, Sizes S-XL"
+        },
+        careInstructions: "Dry clean only. Handle with care."
+      },
+      {
+        id: 31,
+        name: "Girls Casual Dress GC-003",
+        price: 2600,
+        originalPrice: 3250,
+        discount: "20% OFF",
+        image: girlCloth3,
+        details: {
+          fitType: "Casual",
+          designDetails: "Comfortable casual dress for daily wear",
+          material: "100% Cotton",
+          modelInfo: "Ages 4-11, Sizes S-L"
+        },
+        careInstructions: "Machine wash cold. Tumble dry low."
+      },
+      {
+        id: 32,
+        name: "Girls Frock GC-004",
+        price: 2900,
+        originalPrice: 3625,
+        discount: "20% OFF",
+        image: girlCloth4,
+        details: {
+          fitType: "A-line",
+          designDetails: "Pretty frock with floral print",
+          material: "Cotton Blend",
+          modelInfo: "Ages 3-10, Sizes XS-M"
+        },
+        careInstructions: "Machine wash cold. Iron on low."
+      }
+    ]
+  },
+  {
+    id: 'girlsshirt',
+    name: 'Girls Shirts',
+    heroImage: mainGirlsShirt,
+    products: [
+      {
+        id: 33,
+        name: "Girls Casual Shirt GS-001",
+        price: 1600,
+        originalPrice: 2000,
+        discount: "20% OFF",
+        image: girlShirt1,
+        details: {
+          fitType: "Regular",
+          designDetails: "Comfortable casual shirt for girls",
+          material: "Cotton",
+          modelInfo: "Ages 5-12, Sizes S-L"
+        },
+        careInstructions: "Machine wash cold. Iron as needed."
+      },
+      {
+        id: 34,
+        name: "Girls Printed Top GS-002",
+        price: 1800,
+        originalPrice: 2250,
+        discount: "20% OFF",
+        image: girlShirt2,
+        details: {
+          fitType: "Slim",
+          designDetails: "Trendy printed top with modern design",
+          material: "Jersey Cotton",
+          modelInfo: "Ages 6-13, Sizes M-XL"
+        },
+        careInstructions: "Cold wash. Do not bleach."
+      },
+      {
+        id: 35,
+        name: "Girls Summer Shirt GS-003",
         price: 1500,
         originalPrice: 1875,
         discount: "20% OFF",
-        image: imgG4,
+        image: girlShirt3,
         details: {
-          fitType: "Regular",
-          designDetails: "Thin metal frames with blue light filter",
-          material: "Stainless steel",
-          modelInfo: "Available in various prescriptions"
+          fitType: "Relaxed",
+          designDetails: "Breathable summer shirt with fun design",
+          material: "100% Cotton",
+          modelInfo: "Ages 4-11, Sizes S-L"
         },
-        careInstructions: "Use both hands to put on/take off."
+        careInstructions: "Machine wash cold. Tumble dry low."
+      },
+      {
+        id: 36,
+        name: "Girls Formal Shirt GS-004",
+        price: 2000,
+        originalPrice: 2500,
+        discount: "20% OFF",
+        image: girlShirt4,
+        details: {
+          fitType: "Classic",
+          designDetails: "Smart formal shirt for school and events",
+          material: "Cotton Blend",
+          modelInfo: "Ages 6-14, Sizes M-XL"
+        },
+        careInstructions: "Machine wash warm. Iron on medium."
+      }
+    ]
+  },
+  {
+    id: 'girlsshoes',
+    name: 'Girls Shoes',
+    heroImage: mainGirlsShoes,
+    products: [
+      {
+        id: 37,
+        name: "Girls Party Shoes GSH-001",
+        price: 2200,
+        originalPrice: 2750,
+        discount: "20% OFF",
+        image: girlShoe1,
+        details: {
+          fitType: "Fancy",
+          designDetails: "Sparkly party shoes with straps",
+          material: "Synthetic with Glitter",
+          modelInfo: "Sizes 11-3 Youth"
+        },
+        careInstructions: "Wipe with damp cloth. Avoid water."
+      },
+      {
+        id: 38,
+        name: "Girls School Shoes GSH-002",
+        price: 2400,
+        originalPrice: 3000,
+        discount: "20% OFF",
+        image: girlShoe2,
+        details: {
+          fitType: "Formal",
+          designDetails: "Classic school shoes with Mary Jane style",
+          material: "Patent Leather",
+          modelInfo: "Sizes 12-4 Youth"
+        },
+        careInstructions: "Polish regularly. Keep dry."
+      },
+      {
+        id: 39,
+        name: "Girls Casual Shoes GSH-003",
+        price: 2000,
+        originalPrice: 2500,
+        discount: "20% OFF",
+        image: girlShoe3,
+        details: {
+          fitType: "Casual",
+          designDetails: "Comfortable casual shoes for daily wear",
+          material: "Canvas and Rubber",
+          modelInfo: "Sizes 11-3 Youth"
+        },
+        careInstructions: "Wipe clean. Air dry only."
+      },
+      {
+        id: 40,
+        name: "Girls Sneakers GSH-004",
+        price: 2600,
+        originalPrice: 3250,
+        discount: "20% OFF",
+        image: girlShoe4,
+        details: {
+          fitType: "Athletic",
+          designDetails: "Trendy sneakers with cushioned sole",
+          material: "Mesh and Synthetic",
+          modelInfo: "Sizes 12-4 Youth"
+        },
+        careInstructions: "Machine wash gentle. Air dry."
       }
     ]
   }

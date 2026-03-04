@@ -1,19 +1,31 @@
 import React from "react";
-import "../../styles/Carousel.css";
+import { useSelector, useDispatch } from "react-redux";
 import CarouselImage from "./CarouselImage";
 import CarouselNav from "./CarouselNav";
-import useCarousel from "../hooks/carousel/useCarousel";
 import { carouselImages } from "../../assets/carouselData";
+import { setCurrentIndex } from "../redux/slices/carousal/CarousalSlice";
 
 export default function Carousel() {
-  const { currentIndex, goPrev, goNext } = useCarousel(carouselImages.length);
-  const currentImage = carouselImages[currentIndex];
+  const dispatch = useDispatch();
+  const currentIndex = useSelector((state) => state.carousel.currentIndex);
+
+  const goPrev = () => {
+    const newIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+    dispatch(setCurrentIndex(newIndex));
+  };
+
+  const goNext = () => {
+    const newIndex = (currentIndex + 1) % carouselImages.length;
+    dispatch(setCurrentIndex(newIndex));
+  };
+
+  const currentImage = carouselImages[currentIndex] || carouselImages[0];
 
   return (
-    <div className="carousel-container">
-      <CarouselImage 
-        src={currentImage.src} 
-        alt={currentImage.alt} 
+    <div className="carousel-container relative overflow-hidden group">
+      <CarouselImage
+        src={currentImage.src}
+        alt={currentImage.alt}
       />
       <CarouselNav onPrev={goPrev} onNext={goNext} />
     </div>

@@ -1,21 +1,21 @@
 // Import makeup product images
-import main1 from './images/imgmainMk.webp';
-import img1 from './images/imgMk1.webp';
-import img2 from './images/imgMk2.webp';
-import img3 from './images/imgMk3.webp';
-import img4 from './images/imgMk4.webp';
+import main1 from './images/makeup/imgmainMk.webp';
+import img1 from './images/makeup/imgMk1.webp';
+import img2 from './images/makeup/imgMk2.webp';
+import img3 from './images/makeup/imgMk3.webp';
+import img4 from './images/makeup/imgMk4.webp';
 
-import main2 from './images/imgmainMk2.webp';
-import imgS1 from './images/imgMk5.webp';
-import imgS2 from './images/imgMk6.webp';
-import imgS3 from './images/imgMk7.webp';
-import imgS4 from './images/imgMk8.webp';
+import main2 from './images/makeup/imgmainMk2.webp';
+import imgS1 from './images/makeup/imgMk5.webp';
+import imgS2 from './images/makeup/imgMk6.webp';
+import imgS3 from './images/makeup/imgMk7.webp';
+import imgS4 from './images/makeup/imgMk8.webp';
 
-import main4 from './images/imgmainMk3.webp';
-import imgP1 from './images/imgMK9.webp';
-import imgP2 from './images/imgMk10.webp';
-import imgP3 from './images/imgMk11.webp';
-import imgP4 from './images/imgMk12.webp';
+import main4 from './images/makeup/imgmainMk3.webp';
+import imgP1 from './images/makeup/imgMk9.webp';
+import imgP2 from './images/makeup/imgMk10.webp';
+import imgP3 from './images/makeup/imgMk11.webp';
+import imgP4 from './images/makeup/imgMk12.webp';
 
 export const makeupCategories = [
   {
@@ -29,6 +29,7 @@ export const makeupCategories = [
         price: 2514,
         originalPrice: 4190,
         discount: "40% OFF",
+        sale: true,
         image: img1,
         details: {
           fitType: "Relaxed",

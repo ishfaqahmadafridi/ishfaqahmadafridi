@@ -1,7 +1,7 @@
-import eid from "./eid.jpeg";
-import chalo_saj_dhaj_k from "./chalo_saj_dhaj_k.jpeg";
-import iFr from "./iFr.jpeg";
-import FEET from "./FEET.jpeg";
+import eid from "./images/eid.jpeg";
+import chalo_saj_dhaj_k from "./images/chalo_saj_dhaj_k.jpeg";
+import iFr from "./images/iFr.jpeg";
+import FEET from "./images/FEET.jpeg";
 
 export const carouselImages = [
   { id: 1, src: eid, alt: "Eid Collection" },

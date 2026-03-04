@@ -4,23 +4,22 @@
  */
 
 // Import all images
-import main1 from './images/mainSk.webp';
-import img1 from './images/imgSk1.webp';
-import img2 from './images/imgSk2.webp';
-import img3 from './images/imgSk3.webp';
-import img4 from './images/imgSk4.webp';
+import main1 from './images/skincare/mainSk.webp';
+import img1 from './images/skincare/imgSk1.webp';
+import img2 from './images/skincare/imgSk2.webp';
+import img3 from './images/skincare/imgSk3.webp';
+import img4 from './images/skincare/imgSk4.webp';
 
-import main2 from './images/mainSk1.webp';
-import imgS1 from './images/imgSk5.webp';
-import imgS2 from './images/imgSk6.webp';
-import imgS3 from './images/imgSk7.webp';
-import imgS4 from './images/imgSk13.webp';
+import main2 from './images/skincare/mainSk1.webp';
+import imgS1 from './images/skincare/imgSk5.webp';
+import imgS2 from './images/skincare/imgSk6.webp';
+import imgS3 from './images/skincare/imgSk7.webp';
+import imgS4 from './images/skincare/imgSk13.webp';
 
-import main3 from './images/mainSk2.webp';
-import imgP1 from './images/imgSk9.webp';
-import imgP2 from './images/imgSk10.webp';
-import imgP3 from './images/imgSk11.webp';
-import imgP4 from './images/imgSk12.webp';
+import imgP1 from './images/skincare/imgSk9.webp';
+import imgP2 from './images/skincare/imgSk10.webp';
+import imgP3 from './images/skincare/imgSk11.webp';
+import imgP4 from './images/skincare/imgSk12.webp';
 
 export const skincareCategories = [
   {
@@ -34,6 +33,7 @@ export const skincareCategories = [
         price: 2514,
         originalPrice: 4190,
         discount: "40% OFF",
+        sale: true,
         image: img1,
         details: {
           fitType: "Relaxed",
@@ -160,7 +160,7 @@ export const skincareCategories = [
   {
     id: 'pants',
     name: 'Pants',
-    heroImage: main3,
+    heroImage: main1,
     products: [
       {
         id: 9,

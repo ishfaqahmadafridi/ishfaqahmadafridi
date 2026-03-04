@@ -1,21 +1,21 @@
 // Import fragrance product images
-import main1 from './images/imgmainF1.webp';
-import img1 from './images/imgF1.webp';
-import img2 from './images/imgF2.webp';
-import img3 from './images/imgF3.webp';
-import img4 from './images/imgF4.webp';
+import main1 from './images/fragrance/imgmainF1.webp';
+import img1 from './images/fragrance/imgF1.webp';
+import img2 from './images/fragrance/imgF2.webp';
+import img3 from './images/fragrance/imgF3.webp';
+import img4 from './images/fragrance/imgF4.webp';
 
-import main2 from './images/imgmainF2.webp';
-import imgS1 from './images/imgF5.webp';
-import imgS2 from './images/imgF6.webp';
-import imgS3 from './images/imgF7.webp';
-import imgS4 from './images/imgF8.webp';
+import main2 from './images/fragrance/imgmainF2.webp';
+import imgS1 from './images/fragrance/imgF5.webp';
+import imgS2 from './images/fragrance/imgF6.webp';
+import imgS3 from './images/fragrance/imgF7.webp';
+import imgS4 from './images/fragrance/imgF8.webp';
 
-import main4 from './images/imgmainF3.webp';
-import imgP1 from './images/imgF9.webp';
-import imgP2 from './images/imgF10.webp';
-import imgP3 from './images/imgF11.webp';
-import imgP4 from './images/imgF12.webp';
+import main4 from './images/fragrance/imgmainF3.webp';
+import imgP1 from './images/fragrance/imgF9.webp';
+import imgP2 from './images/fragrance/imgF10.webp';
+import imgP3 from './images/fragrance/imgF11.webp';
+import imgP4 from './images/fragrance/imgF12.webp';
 
 export const fragranceCategories = [
   {
@@ -29,6 +29,7 @@ export const fragranceCategories = [
         price: 2514,
         originalPrice: 4190,
         discount: "40% OFF",
+        sale: true,
         image: img1,
         details: {
           fitType: "Relaxed",

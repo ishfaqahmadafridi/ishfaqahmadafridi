@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles/Carousel.css";
 
 export default function CarouselImage({ src, alt }) {
   return (

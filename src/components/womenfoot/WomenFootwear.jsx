@@ -1,17 +1,15 @@
-/**
- * Women Footwear Component
- * Displays women's footwear categories
- */
-import React from "react";
-import { womenFootwearCategories } from "../../assets/womenFootwearData";
-import { SectionTitle, CategoryGrid } from "./components";
-import "../../styles/WomenFootwear.css";
+import React from 'react';
+import WomenFootwearGrid from './WomenFootwearGrid';
 
 export default function WomenFootwear() {
   return (
-    <div className="women-footwear">
-      <SectionTitle title="Women Footwear" />
-      <CategoryGrid categories={womenFootwearCategories} />
+    <div className="bg-gray-50 py-16 px-6">
+      <h2 className="text-3xl font-black text-center mb-12 uppercase tracking-tighter">
+        Women Footwear
+      </h2>
+      <div className="max-w-7xl mx-auto">
+        <WomenFootwearGrid />
+      </div>
     </div>
   );
 }

@@ -2,14 +2,14 @@
  * Women Category Data
  * Categories for women's clothing
  */
-import unstitchedImg from "./unstitchedImg.jpg";
-import stitchedImg from "./stitchedImg.jpg";
-import kurtiImg from "./kurtiImg.jpg";
-import trousersImg from "./trousers.jpg";
+import unstitchedImg from "./images/women-category/unstitchedImg.jpg";
+import stitchedImg from "./images/women-category/stitchedImg.jpg";
+import kurtiImg from "./images/women-category/kurtiImg.jpg";
+import trousersImg from "./images/women-category/Trousers.jpg";
 
 export const womenCategories = [
-  { name: "Unstitched", image: unstitchedImg, key: "catunstitched" },
-  { name: "Stitched", image: stitchedImg, key: "stitched" },
-  { name: "Kurti", image: kurtiImg, key: "kurti" },
-  { name: "Trousers", image: trousersImg, key: "trousers" },
+  { name: "Unstitched", image: unstitchedImg, key: "unstitched" },
+  { name: "Stitched", image: stitchedImg, key: "dresses" },
+  { name: "Kurti", image: kurtiImg, key: "shirts" },
+  { name: "Trousers", image: trousersImg, key: "pants" },
 ];

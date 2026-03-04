@@ -1,22 +1,15 @@
-import PropTypes from 'prop-types';
-import "../../styles/ManFootwear.css";
-import { manFootwearCategories } from '../../assets/manFootwearData';
-import { ManFootwearCatalog } from './components';
+import React from 'react';
+import ManFootwearGrid from './ManFootwearGrid';
 
-/**
- * ManFootwear - Main man footwear component
- * Clean component using hooks, operations, and utils from organized folders
- * Import from: ./hooks, ./operations, ./utils when needed
- */
 export default function ManFootwear() {
   return (
-    <div className="man-footwear">
-      <ManFootwearCatalog 
-        title="Man Footwear"
-        categories={manFootwearCategories}
-      />
+    <div className="bg-gray-50 py-16 px-6">
+      <h2 className="text-3xl font-black text-center mb-12 uppercase tracking-tighter">
+        Man Footwear
+      </h2>
+      <div className="max-w-7xl mx-auto">
+        <ManFootwearGrid />
+      </div>
     </div>
   );
 }
-
-ManFootwear.propTypes = {};

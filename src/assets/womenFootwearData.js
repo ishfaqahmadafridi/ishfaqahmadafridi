@@ -2,14 +2,14 @@
  * Women Footwear Data
  * Categories for women's footwear
  */
-import heelsImg from "./heels.jpg";
-import flatsImg from "./flats.jpg";
-import sneakersImg from "./sneakers.jpg";
-import khussaImg from "./khussa.jpg";
+import heelsImg from "./images/women-shoes/heels.jpg";
+import flatsImg from "./images/women-shoes/flats.jpg";
+import sneakersImg from "./images/women-shoes/sneakers.jpg";
+import khussaImg from "./images/women-shoes/khussa.jpg";
 
 export const womenFootwearCategories = [
-  { name: "Heels", image: heelsImg, link: "#" },
-  { name: "Flats", image: flatsImg, link: "#" },
-  { name: "Sneakers", image: sneakersImg, link: "#" },
-  { name: "Sandals", image: khussaImg, link: "#" },
+  { name: "Heels", image: heelsImg, key: "heels" },
+  { name: "Flats", image: flatsImg, key: "flats" },
+  { name: "Sneakers", image: sneakersImg, key: "sneakers" },
+  { name: "Sandals", image: khussaImg, key: "sandals" },
 ];
