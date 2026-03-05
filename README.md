@@ -52,25 +52,39 @@
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React 18+** - UI library
-- **Redux Toolkit** - State management
-- **React Router v6** - Client-side routing
-- **Tailwind CSS 3** - Styling
-- **Vite** - Build tool
-- **React Icons** - Icon library
+| Technology | Version | Description |
+|------------|---------|-------------|
+| **React** | 19.1.0 | Latest React with concurrent features |
+| **TypeScript** | 5.9.3 | Static type checking |
+| **Redux Toolkit** | 2.11.2 | Modern state management |
+| **React Router** | 7.6.2 | Client-side routing |
+| **Tailwind CSS** | 4.2.1 | Utility-first CSS framework |
+| **Vite** | 6.3.5 | Next-generation build tool |
+| **Axios** | 1.13.6 | HTTP client for API calls |
+| **React Icons** | 5.5.0 | Popular icon library |
 
 ### Backend
-- **Django 4+** - Web framework
-- **Django REST Framework** - API development
-- **SQLite** - Database
-- **JWT** - Authentication
-- **CORS Headers** - Cross-origin resource sharing
+| Technology | Description |
+|------------|-------------|
+| **Django 4+** | Python web framework |
+| **Django REST Framework** | Powerful API development |
+| **SQLite** | Lightweight database |
+| **SimpleJWT** | JWT authentication |
+| **CORS Headers** | Cross-origin resource sharing |
+
+### Dev Tools
+| Tool | Version | Purpose |
+|------|---------|---------|
+| **ESLint** | 9.25.0 | Code linting |
+| **PostCSS** | 8.5.8 | CSS transformations |
+| **Autoprefixer** | 10.4.27 | CSS vendor prefixes |
 
 ### Architecture
 - **Component-Based Architecture** - Modular, reusable components
 - **Redux Slices** - Organized state management
 - **Async Thunks** - API integration
 - **Container/Presentational Pattern** - Separation of concerns
+- **TypeScript Integration** - Type-safe development
 
 ## 🚀 Getting Started
 
@@ -299,12 +313,15 @@ Contributions are welcome! Please follow these steps:
 ### Languages and Tools:
 <p align="left">
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/></a>
+<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/></a>
 <a href="https://redux.js.org" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/></a>
 <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/></a>
+<a href="https://vitejs.dev/" target="_blank" rel="noreferrer"><img src="https://vitejs.dev/logo.svg" alt="vite" width="40" height="40"/></a>
 <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/></a>
 <a href="https://www.python.org" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/></a>
 <a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/></a>
+<a href="https://eslint.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/eslint/eslint-original.svg" alt="eslint" width="40" height="40"/></a>
 </p>
 
 ## 📄 License
