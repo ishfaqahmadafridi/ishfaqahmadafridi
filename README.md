@@ -1,4 +1,4 @@
-# 🛍️ AI Collection - E-Commerce Platform
+# 🛍️ IA Collection - E-Commerce Platform
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/55389276/140866485-8fb1c876-9a8f-4d6a-98dc-08c4981eaf70.gif" alt="Coding" width="400">
@@ -19,7 +19,7 @@
 
 ## 🎯 Overview
 
-**AI Collection** is a modern, full-stack e-commerce platform built with React, Redux Toolkit, and Django REST Framework. The platform offers a seamless shopping experience with features like user authentication, product browsing, cart management, order tracking, and an admin dashboard.
+**IA Collection** is a modern, full-stack e-commerce platform built with React, Redux Toolkit, and Django REST Framework. The platform offers a seamless shopping experience with features like user authentication, product browsing, cart management, order tracking, and an admin dashboard.
 
 ## ✨ Features
 
