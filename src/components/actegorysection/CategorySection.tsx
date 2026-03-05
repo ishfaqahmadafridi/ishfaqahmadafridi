@@ -1,11 +1,10 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setPage } from '../redux/slices/uiSlice/uiSlice';
+import { useNavigate } from 'react-router-dom';
 import { categories } from '../../assets/categoriesList';
 import { CategorySectionProps } from '../interfaces/actegorysection/categorySectionInterface';
 
 export default function CategorySection({}: CategorySectionProps) {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-50 py-16 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
@@ -16,7 +15,7 @@ export default function CategorySection({}: CategorySectionProps) {
           {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => dispatch(setPage(cat.page))}
+              onClick={() => navigate(cat.page)}
               className="px-8 py-3 bg-white border-2 border-gray-200 text-xs font-black uppercase tracking-widest hover:bg-black hover:text-white hover:border-black transition-all"
             >
               {cat.title}

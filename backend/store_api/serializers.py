@@ -4,10 +4,11 @@ from .models import Category, Product, Order, OrderItem, UserActivity, Subscript
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
+    is_staff = serializers.BooleanField(read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password')
+        fields = ('id', 'username', 'email', 'password', 'is_staff')
 
     def create(self, validated_data):
         user = User.objects.create_user(
@@ -20,17 +21,30 @@ class UserSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     stock_status = serializers.ReadOnlyField()
     is_in_stock = serializers.ReadOnlyField()
+    category_name = serializers.CharField(source='category.name', read_only=True)
     
     class Meta:
         model = Product
         fields = '__all__'
+        extra_kwargs = {
+            'image': {'required': False, 'allow_blank': True},
+        }
 
 class CategorySerializer(serializers.ModelSerializer):
     products = ProductSerializer(many=True, read_only=True)
+    parent_name = serializers.CharField(source='parent.name', read_only=True, allow_null=True)
+    subcategories = serializers.SerializerMethodField()
     
     class Meta:
         model = Category
         fields = '__all__'
+    
+    def get_subcategories(self, obj):
+        # Only return subcategories for parent categories (where parent is null)
+        if obj.parent is None:
+            subs = obj.subcategories.all()
+            return [{'id': sub.id, 'name': sub.name, 'slug': sub.slug} for sub in subs]
+        return []
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.name', read_only=True)

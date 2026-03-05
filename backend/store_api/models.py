@@ -5,11 +5,14 @@ from django.utils import timezone
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subcategories')
     image = models.ImageField(upload_to='categories/', null=True, blank=True)
     hero_image = models.ImageField(upload_to='heroes/', null=True, blank=True)
     description = models.TextField(blank=True)
 
     def __str__(self):
+        if self.parent:
+            return f"{self.parent.name} > {self.name}"
         return self.name
 
     class Meta:
@@ -21,7 +24,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     original_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     discount = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='products/')
+    image = models.TextField(blank=True, default='')  # Store image URL as text
     description = models.TextField(blank=True)
     stock = models.IntegerField(default=10)
     is_hot = models.BooleanField(default=False)
@@ -119,3 +122,13 @@ class DailySales(models.Model):
     class Meta:
         verbose_name_plural = 'Daily Sales'
         ordering = ['-date']
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    profile_image = models.TextField(blank=True)  # Store base64 image
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Profile of {self.user.username}"

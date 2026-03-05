@@ -1,7 +1,10 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import CategoryViewSet, ProductViewSet
-from .auth_views import RegisterView, CustomTokenObtainPairView
+from .auth_views import (
+    RegisterView, CustomTokenObtainPairView,
+    upload_profile_image, change_password, get_profile
+)
 from rest_framework_simplejwt.views import TokenRefreshView
 
 # Import from organized admin_views package
@@ -23,6 +26,11 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='auth_register'),
     path('login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    
+    # Profile endpoints
+    path('profile/', get_profile, name='profile'),
+    path('profile/upload-image/', upload_profile_image, name='upload-profile-image'),
+    path('profile/change-password/', change_password, name='change-password'),
     
     # Admin analytics endpoints
     path('admin/dashboard/stats/', dashboard_stats, name='dashboard-stats'),
