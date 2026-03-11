@@ -1,14 +1,13 @@
-import { useDispatch } from 'react-redux';
 import { IoCreateOutline, IoTrashOutline } from 'react-icons/io5';
-import { deleteProduct } from '../../redux/slices/admin/adminThunks';
+import { useProductsStore } from '../../zustand/admin/productsStore';
 import type { ProductActionsProps } from '../../interfaces/admin/adminProducts/adminProductsInterface';
 
 export default function ProductActions({ product, onEdit }: ProductActionsProps) {
-  const dispatch = useDispatch();
+  const { deleteProduct } = useProductsStore();
 
   const handleDelete = () => {
     if (window.confirm(`Are you sure you want to delete "${product.name}"?`)) {
-      (dispatch as any)((deleteProduct as any)(product.id));
+      deleteProduct(product.id.toString());
     }
   };
 

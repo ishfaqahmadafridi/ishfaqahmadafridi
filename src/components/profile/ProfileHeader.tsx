@@ -1,10 +1,9 @@
-import { useSelector } from 'react-redux';
-import { selectProfileData } from '../redux/slices/profile/profileSlice';
-import { selectUser } from '../redux/slices/auth/authSlice';
+import { useProfileStore } from '../zustand/profile/profileStore';
+import { useAuthStore } from '../zustand/auth/authStore';
 
 export default function ProfileHeader() {
-    const profileData = useSelector(selectProfileData);
-    const authUser = useSelector(selectUser);
+    const profileData = useProfileStore((state) => state.profileData);
+    const authUser = useAuthStore((state) => state.user);
     
     // Use profile data first, then auth user data as fallback
     const userName = profileData.name || profileData.username || authUser?.username || 'User';

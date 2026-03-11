@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/slices/cart/cartSlice';
+import { useCartStore } from '../zustand/cart/cartStore';
 import MenProductTitle from './MenProductTitle';
 import MenProductPrice from './MenProductPrice';
 import MenStockIndicator from './MenStockIndicator';
@@ -7,7 +6,7 @@ import MenAddToCartBtn from './MenAddToCartBtn';
 import type { MenProductInfoProps } from '../interfaces/catman/catmanInterface';
 
 export default function MenProductInfo({ product }: MenProductInfoProps) {
-    const dispatch = useDispatch();
+    const addToCart = useCartStore((state) => state.addToCart);
 
     // Extract numeric ID for cart (backend products have "backend-123" format)
     const getNumericId = (id: number | string): number => {
@@ -25,12 +24,12 @@ export default function MenProductInfo({ product }: MenProductInfoProps) {
             <MenStockIndicator />
             <MenAddToCartBtn onClick={(e) => {
                 e.stopPropagation();
-                dispatch(addToCart({ 
+                addToCart({ 
                     ...product, 
                     id: getNumericId(product.id),
                     quantity: 1, 
                     size: 'M' 
-                }));
+                });
             }} />
         </div>
     );

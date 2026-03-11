@@ -80,5 +80,5 @@ export interface RecentOrdersTableProps {
 }
 
 export interface RecentOrdersSectionProps {
-    orders: Order[];
+    recent_Orders: Order[];
 }

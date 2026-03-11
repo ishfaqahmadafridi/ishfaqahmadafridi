@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectIsAuthenticated } from '../redux/slices/auth/authSlice';
+import { useAuthStore } from '../zustand/auth/authStore';
 import ProfileBackButton from './ProfileBackButton';
 import ProfileContainer from './ProfileContainer';
 
 export default function UserProfile() {
     const navigate = useNavigate();
-    const isAuthenticated = useSelector(selectIsAuthenticated);
+    const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
     const [activeTab, setActiveTab] = useState('profile');
 
     useEffect(() => {
@@ -21,7 +20,7 @@ export default function UserProfile() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 pt-24 pb-12 px-4">
+        <div className="min-h-screen bg-background pt-24 pb-12 px-4 transition-colors duration-500">
             <div className="max-w-4xl mx-auto">
                 <ProfileBackButton />
                 <ProfileContainer activeTab={activeTab} setActiveTab={setActiveTab} />

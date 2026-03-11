@@ -1,14 +1,14 @@
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setSelectedCategory } from '../redux/slices/uiSlice/uiSlice';
+import { useUiStore } from '../zustand/ui/uiStore';
+
 import type { WomenFootwearCardProps } from '../interfaces/womenfoot/womenfootInterface';
 
 export default function WomenFootwearCard({ category }: WomenFootwearCardProps) {
-    const dispatch = useDispatch();
+    const setSelectedCategory = useUiStore((state) => state.setSelectedCategory);
     const navigate = useNavigate();
 
     const handleClick = () => {
-        dispatch(setSelectedCategory(category.key));
+        setSelectedCategory(category.key);
         navigate('/women');
     };
 

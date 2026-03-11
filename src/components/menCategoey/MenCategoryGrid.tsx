@@ -1,6 +1,6 @@
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setSelectedCategory } from '../redux/slices/uiSlice/uiSlice';
+import { useCategoryStore } from '../zustand/category/categoryStore';
+
 import type { MenCategoryItem } from '../interfaces/menCategory/menCategoryInterface';
 import shalwarImg from '../../assets/images/men-category/shalwarImg.jpg';
 import kurtaImg from '../../assets/images/men-category/kurtaImg.jpg';
@@ -8,8 +8,8 @@ import waistcoatImg from '../../assets/images/men-category/waistcoatImg.jpg';
 import groomsSherwaniImg from '../../assets/images/men-category/groomsSherwaniImg.jpg';
 
 export default function MenCategoryGrid() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const setSelectedSubCategory = useCategoryStore((state) => state.setSelectedSubCategory);
 
     const cats: MenCategoryItem[] = [
         { n: 'Shalwar Kameez', img: shalwarImg, categoryId: 'shalwar' },
@@ -24,7 +24,7 @@ export default function MenCategoryGrid() {
                 <div
                     key={i}
                     onClick={() => {
-                        dispatch(setSelectedCategory(c.categoryId));
+                        setSelectedSubCategory(c.categoryId);
                         navigate('/men');
                     }}
                     className="group relative h-[450px] rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-700"

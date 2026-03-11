@@ -1,14 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../redux/slices/cart/cartSlice';
+import { useCartStore } from '../zustand/cart/cartStore';
 import { CartItemRemoveProps } from '../interfaces/cart/cartInterface';
 
 export default function CartItemRemove({ id, size }: CartItemRemoveProps) {
-    const dispatch = useDispatch();
+    const removeFromCart = useCartStore((state) => state.removeFromCart);
     return (
         <button
             className="w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:bg-red-50 hover:text-red-500 transition-all ml-2"
-            onClick={() => dispatch(removeFromCart({ id, size }))}
+            onClick={() => removeFromCart({ id, size })}
             aria-label="Remove item"
         >
             ×

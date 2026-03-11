@@ -8,7 +8,7 @@ export default function CartList({ items }) {
     }
 
     return (
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden divide-y divide-gray-100">
+        <div className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden divide-y divide-border transition-colors duration-500">
             {items.map(item => (
                 <CartItem key={`${item.id}-${item.size}`} item={item} />
             ))}

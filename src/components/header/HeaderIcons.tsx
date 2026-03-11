@@ -1,44 +1,43 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { IoSearchOutline, IoCartOutline, IoPersonOutline, IoLogOutOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
-import { toggleTheme, selectTheme, toggleSearchDialog } from '../redux/slices/uiSlice/uiSlice';
-import { selectCartItems } from '../redux/slices/cart/cartSlice';
-import { logout, selectIsAuthenticated } from '../redux/slices/auth/authSlice';
-import { IoSearch, IoCartOutline, IoSunnyOutline, IoMoonOutline, IoPersonOutline, IoLogOutOutline } from 'react-icons/io5';
+import { useUiStore } from '../zustand/ui/uiStore';
+import { useCartStore } from '../zustand/cart/cartStore';
+import { useAuthStore } from '../zustand/auth/authStore';
+import { useProfileStore } from '../zustand/profile/profileStore';
+
+import api from '../../api/client';
 
 export default function HeaderIcons() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const theme = useSelector(selectTheme);
-    const cartItems = useSelector(selectCartItems);
-    const isAuthenticated = useSelector(selectIsAuthenticated);
+    
+    // Zustand selectors
+    const cartItems = useCartStore((state) => state.items);
+    const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+    const logout = useAuthStore((state) => state.logout);
+    const profileData = useProfileStore((state) => state.profileData);
+    const profileImage = profileData.profileImage;
     const count = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
+    const handleCartClick = () => {
+        // Log activity to backend
+        api.post('/activity/log/', { activity_type: 'view_cart' })
+           .catch(err => console.error('Failed to log view_cart activity', err));
+        navigate('/cart');
+    };
+
     return (
-        <div className="flex items-center gap-4 md:gap-6 text-xl">
-            <button onClick={() => dispatch(toggleTheme())} className="p-2 hover:opacity-50 transition-opacity">
-                {theme === 'light' ? <IoMoonOutline /> : <IoSunnyOutline className="text-yellow-400" />}
+        <div className="flex items-center gap-2 md:gap-4 text-2xl md:text-3xl">
+            <button onClick={() => navigate('/search')} className="p-2 hover:opacity-50 transition-opacity">
+                <IoSearchOutline />
             </button>
-            <button onClick={() => dispatch(toggleSearchDialog())} className="p-2 hover:opacity-50 transition-opacity">
-                <IoSearch />
-            </button>
-            <button onClick={() => navigate('/cart')} className="relative p-2 hover:opacity-50 transition-opacity">
+            <button onClick={handleCartClick} className="p-2 hover:opacity-50 transition-opacity relative">
                 <IoCartOutline />
-                {count > 0 && <span className="absolute top-0 right-0 bg-rose-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold animate-bounce">{count}</span>}
+                {count > 0 && (
+                    <span className="absolute top-0 right-0 bg-rose-600 text-white text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full border-2 border-black transform translate-x-1 -translate-y-1">
+                        {count}
+                    </span>
+                )}
             </button>
-            {isAuthenticated ? (
-                <>
-                    <button onClick={() => navigate('/profile')} className="p-2 hover:text-purple-600 transition-colors">
-                        <IoPersonOutline />
-                    </button>
-                    <button onClick={() => dispatch(logout())} className="p-2 hover:text-rose-600 transition-colors">
-                        <IoLogOutOutline />
-                    </button>
-                </>
-            ) : (
-                <button onClick={() => navigate('/signin')} className="p-2 hover:opacity-50 transition-opacity">
-                    <IoPersonOutline />
-                </button>
-            )}
         </div>
     );
 }

@@ -1,12 +1,20 @@
-import { useSelector } from 'react-redux';
-import { selectCategories, selectWomenBackendProducts } from '../redux/slices/catwomenG/catwomenSlice';
-import { selectSelectedCategory } from '../redux/slices/uiSlice/uiSlice';
+
+import { useEffect } from 'react';
 import WomenSection from './WomenSection';
+import { useUiStore } from '../zustand/ui/uiStore';
+import { useCategoryStore } from '../zustand/category/categoryStore';
 
 export default function WomenGrid() {
-    const categories = useSelector(selectCategories);
-    const selectedCategory = useSelector(selectSelectedCategory);
-    const backendProducts = useSelector(selectWomenBackendProducts);
+    const selectedCategory = useUiStore((state) => state.selectedCategory);
+    const categories = useCategoryStore((state) => state.localCategories.women);
+    
+    // Using 'women' as the backend category name based on categoryStore mapping
+    const backendProducts = useCategoryStore((state) => state.backendProducts['women']) || [];
+    const fetchProducts = useCategoryStore((state) => state.fetchProducts);
+    
+    useEffect(() => {
+        fetchProducts('women');
+    }, [fetchProducts]);
 
     const displayCategories = selectedCategory
         ? categories.filter(cat => cat.id === selectedCategory)

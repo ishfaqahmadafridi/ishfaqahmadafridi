@@ -4,7 +4,7 @@ export default function Tracking() {
   return (
     <div className="min-h-screen pt-20" style={{ backgroundImage: `url(${trackImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="min-h-[80vh] flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
-        <div className="max-w-xl w-full bg-white/95 p-12 rounded-3xl shadow-2xl space-y-8">
+        <div className="max-w-xl w-full bg-card/95 backdrop-blur-xl p-12 rounded-3xl shadow-2xl space-y-8 border border-border">
           <div className="text-center space-y-2">
             <h2 className="text-4xl font-black uppercase tracking-tighter">Track Order</h2>
             <p className="text-sm text-gray-500 font-bold uppercase tracking-widest">Real-time Delivery Status</p>

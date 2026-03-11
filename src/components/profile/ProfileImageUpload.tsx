@@ -1,9 +1,6 @@
 import { useState, type ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { uploadProfileImage } from '../redux/slices/profile/profileThunk';
-import { selectProfileData, selectImageStatus, removeProfileImage } from '../redux/slices/profile/profileSlice';
-import { selectUser } from '../redux/slices/auth/authSlice';
-import type { AppDispatch } from '../redux/store';
+import { useProfileStore } from '../zustand/profile/profileStore';
+import { useAuthStore } from '../zustand/auth/authStore';
 import ProfileImageDisplay from './ProfileImageDisplay';
 import ProfileImageRemoveButton from './ProfileImageRemoveButton';
 import ProfileImageSelectButton from './ProfileImageSelectButton';
@@ -11,10 +8,11 @@ import ProfileImageUploadButton from './ProfileImageUploadButton';
 import ProfileImageHint from './ProfileImageHint';
 
 export default function ProfileImageUpload() {
-    const dispatch = useDispatch<AppDispatch>();
-    const profileData = useSelector(selectProfileData);
-    const authUser = useSelector(selectUser);
-    const imageStatus = useSelector(selectImageStatus);
+    const profileData = useProfileStore((state) => state.profileData);
+    const imageStatus = useProfileStore((state) => state.imageStatus);
+    const uploadProfileImage = useProfileStore((state) => state.uploadProfileImage);
+    const removeProfileImage = useProfileStore((state) => state.removeProfileImage);
+    const authUser = useAuthStore((state) => state.user);
 
     const [previewImage, setPreviewImage] = useState<string | null>(null);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -36,13 +34,13 @@ export default function ProfileImageUpload() {
 
     const handleImageUpload = async () => {
         if (!selectedFile) return;
-        await dispatch(uploadProfileImage(selectedFile as any));
+        await uploadProfileImage(selectedFile);
         setPreviewImage(null);
         setSelectedFile(null);
     };
 
     const handleRemoveImage = () => {
-        dispatch(removeProfileImage());
+        removeProfileImage();
         setPreviewImage(null);
         setSelectedFile(null);
     };

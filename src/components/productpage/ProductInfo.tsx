@@ -7,7 +7,7 @@ export default function ProductInfo({ product, onAddToCart }: ProductInfoProps) 
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-3xl font-black uppercase tracking-tight text-gray-900">{product.name}</h1>
+                <h1 className="text-3xl font-black uppercase tracking-tight text-foreground">{product.name}</h1>
                 <div className="flex items-center gap-4 mt-2">
                     <span className="text-2xl font-bold text-rose-600">PKR {product.price}</span>
                     {product.originalPrice && (

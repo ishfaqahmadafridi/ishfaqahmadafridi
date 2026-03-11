@@ -1,15 +1,14 @@
 import { useState, useEffect, useMemo, type ChangeEvent } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { IoClose, IoSearch } from 'react-icons/io5';
-import { setSelectedProduct } from '../redux/slices/uiSlice/uiSlice';
+import { useUiStore } from '../zustand/ui/uiStore';
 import { menCategories } from '../../assets/menData';
 import { womenCategories } from '../../assets/womenData';
 import { fragranceCategories } from '../../assets/fragranceData';
 import type { SearchProduct, SearchDialogProps, CategoryWithProducts } from '../interfaces/search/searchInterface';
 
 export default function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
-  const dispatch = useDispatch();
+  const setSelectedProduct = useUiStore((state) => state.setSelectedProduct);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState<SearchProduct[]>([]);
@@ -57,7 +56,7 @@ export default function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
   }, [searchQuery, allProducts]);
 
   const handleProductClick = (product: SearchProduct) => {
-    dispatch(setSelectedProduct(product));
+    setSelectedProduct(product);
     navigate(`/product/${product.id}`);
     onClose();
     setSearchQuery('');
@@ -84,10 +83,10 @@ export default function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
       />
       
       {/* Dialog */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-screen md:h-auto md:max-h-[90vh] md:top-20 bg-white z-50 shadow-2xl animate-in slide-in-from-top duration-300">
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-screen md:h-auto md:max-h-[90vh] md:top-20 bg-background z-50 shadow-2xl animate-in slide-in-from-top duration-300">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center gap-4 p-4 border-b border-gray-200">
+          <div className="flex items-center gap-4 p-4 border-b border-border">
             <IoSearch className="text-2xl text-gray-400" />
             <input
               type="text"
@@ -99,7 +98,7 @@ export default function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
             />
             <button 
               onClick={handleClose}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              className="p-2 hover:bg-muted rounded-full transition-colors"
             >
               <IoClose className="text-2xl" />
             </button>
@@ -128,7 +127,7 @@ export default function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                     <button
                       key={`${product.source}-${product.categoryId}-${product.id}`}
                       onClick={() => handleProductClick(product)}
-                      className="flex gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors text-left border border-gray-100 hover:border-gray-300"
+                        className="flex gap-4 p-4 hover:bg-muted rounded-lg transition-colors text-left border border-border"
                     >
                       <img 
                         src={product.image} 

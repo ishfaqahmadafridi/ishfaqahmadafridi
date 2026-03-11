@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllProducts, fetchInventoryStatus } from '../../redux/slices/admin/adminThunks';
-import { selectProducts, selectProductsLoading, selectInventoryStatus, selectProductsError } from '../../redux/slices/admin/adminSlice';
-import type { AppDispatch } from '../../redux/store';
-import type { Product } from '../../interfaces/admin/adminProducts/adminProductsInterface';
+import { useShallow } from 'zustand/react/shallow';
+import { useProductsStore } from '../../zustand/admin/productsStore';
 import ProductsHeader from './ProductsHeader';
 import InventoryStats from './InventoryStats';
 import ProductFilterTabs from './ProductFilterTabs';
@@ -12,45 +9,58 @@ import LoadingSpinner from './LoadingSpinner';
 import ProductModal from '../productModal';
 
 export default function AdminProducts() {
-  const dispatch = useDispatch<AppDispatch>();
-  const products = useSelector(selectProducts);
-  const loading = useSelector(selectProductsLoading);
-  const error = useSelector(selectProductsError);
-  const stats = useSelector(selectInventoryStatus);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'low-stock' | 'out-of-stock'>('all');
   const [showModal, setShowModal] = useState(false);
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
+
+  const {
+    products,
+    inventoryStatus: stats,
+    productsLoading: loading,
+    productsError: error,
+    fetchAllProducts,
+    fetchInventoryStatus,
+    createProduct,
+    updateProduct,
+    deleteProduct,
+    updateProductStock,
+  } = useProductsStore(
+    useShallow((s) => ({
+      products: s.products,
+      inventoryStatus: s.inventoryStatus,
+      productsLoading: s.productsLoading,
+      productsError: s.productsError,
+      fetchAllProducts: s.fetchAllProducts,
+      fetchInventoryStatus: s.fetchInventoryStatus,
+      createProduct: s.createProduct,
+      updateProduct: s.updateProduct,
+      deleteProduct: s.deleteProduct,
+      updateProductStock: s.updateProductStock,
+    }))
+  );
 
   useEffect(() => {
-    dispatch(fetchAllProducts());
-    dispatch(fetchInventoryStatus());
-  }, [dispatch]);
+    fetchAllProducts();
+    fetchInventoryStatus();
+  }, [fetchAllProducts, fetchInventoryStatus]);
 
-  const handleAddProduct = () => {
-    setEditingProduct(null);
-    setShowModal(true);
-  };
+  const selectedProduct = selectedProductId
+    ? products.find((p) => p.id === selectedProductId) ?? null
+    : null;
 
-  const handleEditProduct = (product: Product) => {
-    setEditingProduct(product);
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setEditingProduct(null);
-  };
-
-  if (loading) {
-    return <LoadingSpinner />;
-  }
+  if (loading) return <LoadingSpinner />;
 
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center h-64 text-center">
-        <p className="text-red-500 text-lg mb-4">Failed to load products</p>
-        <button 
-          onClick={() => dispatch(fetchAllProducts())}
+        <p className="text-red-500 text-lg mb-4">
+          Failed to load: {error || 'Unknown error'}
+        </p>
+        <button
+          onClick={() => {
+            fetchAllProducts();
+            fetchInventoryStatus();
+          }}
           className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800"
         >
           Retry
@@ -61,15 +71,37 @@ export default function AdminProducts() {
 
   return (
     <div className="space-y-6 py-2">
-      <ProductsHeader onAddProduct={handleAddProduct} />
-      <InventoryStats stats={stats} />
+      <ProductsHeader
+         onAddProduct={() => {
+          setSelectedProductId(null);
+          setShowModal(true);
+        }}
+      />
+
+      <InventoryStats  stats= {stats}/>
+
       <ProductFilterTabs activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-      <ProductsTable products={products} onEditProduct={handleEditProduct} activeFilter={activeFilter} />
+
+      <ProductsTable
+        products={products}
+        activeFilter={activeFilter}
+        onEdit={(id: number) => {
+          setSelectedProductId(id);
+          setShowModal(true);
+        }}
+        onDelete={deleteProduct}
+        onUpdateStock={updateProductStock}
+      />
 
       {showModal && (
         <ProductModal
-          product={editingProduct}
-          onClose={handleCloseModal}
+          product={selectedProduct}
+          onClose={() => {
+            setShowModal(false);
+            setSelectedProductId(null);
+          }}
+          onSave={selectedProduct ? updateProduct : createProduct}
+          // optional: onSuccess={() => setShowModal(false)}
         />
       )}
     </div>

@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/slices/cart/cartSlice';
+import { useCartStore } from '../zustand/cart/cartStore';
 import FragranceProductTitle from './FragranceProductTitle';
 import FragranceProductPrice from './FragranceProductPrice';
 import FragranceStockIndicator from './FragranceStockIndicator';
@@ -7,11 +6,11 @@ import FragranceAddToCartBtn from './FragranceAddToCartBtn';
 import type { FragranceProductInfoProps } from '../interfaces/catfragrance/catfragranceInterface';
 
 export default function FragranceProductInfo({ product }: FragranceProductInfoProps) {
-    const dispatch = useDispatch();
+    const addToCart = useCartStore((state) => state.addToCart);
 
     const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
-        dispatch(addToCart({ ...product, quantity: 1, size: 'OS' }));
+        addToCart({ ...product, quantity: 1, size: 'OS' });
     };
 
     return (

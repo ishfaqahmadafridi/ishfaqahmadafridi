@@ -4,7 +4,7 @@ import type { MenProductPriceProps } from '../interfaces/catman/catmanInterface'
 export default function MenProductPrice({ price, originalPrice }: MenProductPriceProps) {
     return (
         <div className="flex items-center gap-3">
-            <span className={`text-base md:text-xl font-black ${originalPrice ? 'text-rose-600' : 'text-gray-900'}`}>
+            <span className={`text-base md:text-xl font-black ${originalPrice ? 'text-rose-600' : 'text-foreground'}`}>
                 {formatPrice(price)}
             </span>
             {originalPrice && (

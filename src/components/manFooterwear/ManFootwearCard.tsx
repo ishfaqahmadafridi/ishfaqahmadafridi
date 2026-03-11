@@ -1,17 +1,16 @@
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setSelectedCategory } from '../redux/slices/uiSlice/uiSlice';
+import { useUiStore } from '../zustand/ui/uiStore';
 import type { ManFootwearCardProps } from '../interfaces/manFootwear/manFootwearInterface';
 
 export default function ManFootwearCard({ category }: ManFootwearCardProps) {
-    const dispatch = useDispatch();
+    const setSelectedCategory = useUiStore((state) => state.setSelectedCategory);
     const navigate = useNavigate();
 
     return (
         <div
-            className="group relative h-[450px] rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-700"
+            className="group relative h-450px rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-700"
             onClick={() => {
-                dispatch(setSelectedCategory(category.key));
+                setSelectedCategory(category.key);
                 navigate('/men');
             }}
         >

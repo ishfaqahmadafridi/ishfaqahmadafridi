@@ -1,16 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setQuantity, selectQuantity } from '../redux/slices/product/productSlice';
+import { useProductStore } from '../zustand/product/productStore';
 
 export default function QuantitySelector() {
-    const dispatch = useDispatch();
-    const quantity = useSelector(selectQuantity);
+    const setQuantity = useProductStore((state) => state.setQuantity);
+    const quantity = useProductStore((state) => state.quantity);
     return (
         <div className="space-y-3">
             <label className="text-xs font-black uppercase tracking-widest text-gray-500">Quantity</label>
-            <div className="flex items-center border-2 border-gray-200 w-fit rounded-lg overflow-hidden">
-                <button onClick={() => dispatch(setQuantity(quantity - 1))} className="px-4 py-2 hover:bg-gray-100 transition-colors">-</button>
-                <span className="px-6 py-2 font-black border-x-2 border-gray-200 bg-white">{quantity}</span>
-                <button onClick={() => dispatch(setQuantity(quantity + 1))} className="px-4 py-2 hover:bg-gray-100 transition-colors">+</button>
+            <div className="flex items-center border-2 border-border w-fit rounded-lg overflow-hidden">
+                <button onClick={() => setQuantity(quantity - 1)} className="px-4 py-2 hover:bg-muted transition-colors text-foreground">-</button>
+                <span className="px-6 py-2 font-black border-x-2 border-border bg-background text-foreground">{quantity}</span>
+                <button onClick={() => setQuantity(quantity + 1)} className="px-4 py-2 hover:bg-muted transition-colors text-foreground">+</button>
             </div>
         </div>
     );

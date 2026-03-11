@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux";
 import { carouselImages } from "../../assets/carouselData";
-import { RootState } from "../redux/store";
+import { useCarouselStore } from "../zustand/carousel/carouselStore";
 
 export default function CarouselImage() {
-    const currentIndex = useSelector((state: RootState) => state.carousel.currentIndex);
+    const currentIndex = useCarouselStore((state) => state.currentIndex);
     const currentImage = carouselImages[currentIndex];
   return (
     <img 

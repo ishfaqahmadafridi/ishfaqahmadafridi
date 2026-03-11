@@ -1,21 +1,23 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useUiStore } from '../zustand/ui/uiStore';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import SearchDialog from '../search/SearchDialog';
-import { selectIsSearchDialogOpen, setSearchDialogOpen } from '../redux/slices/uiSlice/uiSlice';
-import type { AppDispatch } from '../redux/store';
+
 
 export default function Layout() {
-    const dispatch = useDispatch<AppDispatch>();
-    const location = useLocation();
-    const isSearchDialogOpen = useSelector(selectIsSearchDialogOpen);
+    const theme = useUiStore((state) => state.theme);
+    const isSearchDialogOpen = useUiStore((state) => state.isSearchDialogOpen);
+    const setSearchDialogOpen = useUiStore((state) => state.setSearchDialogOpen);
 
-    // Scroll to top on route change
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [location.pathname]);
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [theme]);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -26,7 +28,7 @@ export default function Layout() {
             <Footer />
             <SearchDialog
                 isOpen={isSearchDialogOpen}
-                onClose={() => dispatch(setSearchDialogOpen(false))}
+                onClose={() => setSearchDialogOpen(false)}
             />
         </div>
     );

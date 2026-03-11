@@ -1,8 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useUiStore } from '../zustand/ui/uiStore';
 import type { HomeContentProps } from '../interfaces/home/homeInterface';
-import type { AppDispatch } from '../redux/store';
-import { setPage } from '../redux/slices/uiSlice/uiSlice';
 import Main from '../main/Main';
 import Catman from '../catman/Catman';
 import Catwomen from '../catwoman/Catwomen';
@@ -25,17 +23,17 @@ import AdminPanel from '../admin/adminPanel';
 import UserProfile from '../profile/UserProfile';
 
 export default function HomeContent({ page }: HomeContentProps) {
-    const dispatch = useDispatch<AppDispatch>();
-    const handleSetPage = (newPage: string) => dispatch(setPage(newPage));
+    const setPage = useUiStore((state) => state.setPage);
+    const handleSetPage = (newPage: string) => setPage(newPage);
 
     const pageMap: Record<string, React.ReactNode> = {
         landing: <LandingPage />,
-        home: <Main setPage={handleSetPage} />,
+        home: <Main />,
         man: <Catman />,
         women: <Catwomen />,
         product: <ProductPage />,
         boysG: <CatBoysG />,
-        cart: <Cart setPage={handleSetPage} />,
+        cart: <Cart />,
         fragrances: <CatFragrance />,
         makeup: <CatMakeup />,
         skincare: <CatSkincare />,
@@ -51,6 +49,6 @@ export default function HomeContent({ page }: HomeContentProps) {
         profile: <UserProfile />,
     };
 
-    return (pageMap[page] || <Main setPage={handleSetPage} />) as React.ReactElement;
+    return (pageMap[page] || <Main />) as React.ReactElement;
 }
 

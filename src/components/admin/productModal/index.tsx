@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { createProduct, updateProduct, fetchAllProducts, fetchInventoryStatus } from '../../redux/slices/admin/adminThunks';
+import { useProductsStore } from '../../zustand/admin/productsStore';
 import type { ProductModalProps, ProductFormData } from '../../interfaces/admin/productModal/productModalInterface';
 import ModalHeader from './ModalHeader';
 import ProductNameInput from './ProductNameInput';
@@ -11,7 +10,7 @@ import HotProductCheckbox from './HotProductCheckbox';
 import ModalActions from './ModalActions';
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
-  const dispatch = useDispatch();
+  const { createProduct, updateProduct, fetchAllProducts, fetchInventoryStatus } = useProductsStore();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<ProductFormData>({
     name: '',
@@ -53,13 +52,13 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
       };
 
       if (product) {
-        await (dispatch as any)((updateProduct as any)({ id: product.id, data: productData }));
+        await updateProduct(product.id.toString(), productData);
       } else {
-        await (dispatch as any)((createProduct as any)(productData));
+        await createProduct(productData);
       }
 
-      (dispatch as any)((fetchAllProducts as any)());
-      (dispatch as any)((fetchInventoryStatus as any)());
+      await fetchAllProducts();
+      await fetchInventoryStatus();
       onClose();
     } catch (error) {
       console.error('Error saving product:', error);

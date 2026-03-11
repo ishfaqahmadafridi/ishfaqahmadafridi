@@ -8,7 +8,7 @@ type ProductPriceProps = {
 export default function ProductPrice({ price, originalPrice }: ProductPriceProps) {
     return (
         <div className="flex items-baseline gap-2">
-            <span className={`text-sm md:text-base font-bold ${originalPrice ? 'text-rose-600' : 'text-gray-900'}`}>
+            <span className={`text-sm md:text-base font-bold ${originalPrice ? 'text-rose-600' : 'text-foreground'}`}>
                 {formatPrice(price)}
             </span>
             {originalPrice && (

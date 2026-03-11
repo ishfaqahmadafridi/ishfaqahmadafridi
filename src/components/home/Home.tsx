@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentPage, selectIsSearchDialogOpen, setSearchDialogOpen } from '../redux/slices/uiSlice/uiSlice';
-import type { RootState, AppDispatch } from '../redux/store';
+import { useUiStore } from '../zustand/ui/uiStore';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import HomeContent from './HomeContent';
 import SearchDialog from '../search/SearchDialog';
 
 export default function Home() {
-  const dispatch = useDispatch<AppDispatch>();
-  const currentPage = useSelector((state: RootState) => selectCurrentPage(state));
+  const currentPage = useUiStore((state) => state.currentPage);
+  const isSearchDialogOpen = useUiStore((state) => state.isSearchDialogOpen);
+  const setSearchDialogOpen = useUiStore((state) => state.setSearchDialogOpen);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPage]);
-  const isSearchDialogOpen = useSelector((state: RootState) => selectIsSearchDialogOpen(state));
+
   const isAdminPage = currentPage === 'admin';
 
   if (isAdminPage) {
@@ -30,7 +29,7 @@ export default function Home() {
       <Footer />
       <SearchDialog 
         isOpen={isSearchDialogOpen} 
-        onClose={() => dispatch(setSearchDialogOpen(false))} 
+        onClose={() => setSearchDialogOpen(false)} 
       />
     </div>
   );

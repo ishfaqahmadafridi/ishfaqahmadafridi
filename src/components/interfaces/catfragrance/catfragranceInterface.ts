@@ -1,10 +1,11 @@
 export interface FragranceProduct {
-    id: number;
+    id: number | string;
     name: string;
     image: string;
     price: number;
     originalPrice?: number;
     discount?: string;
+    isBackend?: boolean;
 }
 
 export interface FragranceCategory {
@@ -49,6 +50,7 @@ export interface FragranceHeaderProps {
 
 export interface FragranceSectionProps {
     category: FragranceCategory;
+    backendProducts?: any[];
 }
 
 export interface FragranceProductsGridProps {

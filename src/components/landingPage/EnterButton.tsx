@@ -1,18 +1,14 @@
 import { useEffect, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectShowButton, setShowButton } from '../redux/slices/landing/landingSlice';
-import { useDispatch } from 'react-redux';
-
+import { useLandingStore } from '../zustand/landing/landingStore';
 export default function EnterButton() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const showButton = useSelector(selectShowButton);
+    const { showButton, setShowButton } = useLandingStore();
 
     useEffect(() => {
-        const timer = setTimeout(() => dispatch(setShowButton(true)), 2000);
+        const timer = setTimeout(() => setShowButton(true), 2000);
         return () => clearTimeout(timer);
-    }, [dispatch]);
+    }, [setShowButton]);
 
     const handleEnter = useCallback(() => {
         localStorage.setItem('hasVisitedSite', 'true');

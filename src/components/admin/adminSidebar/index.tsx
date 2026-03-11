@@ -1,17 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectCurrentView, setCurrentView } from '../../redux/slices/admin/adminSlice';
+import { useUiStore } from '../../zustand/admin/uiStore';
 import SidebarHeader from './SidebarHeader';
 import SidebarNav from './SidebarNav';
 import BackToStoreButton from './BackToStoreButton';
 
 export default function AdminSidebar() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const currentView = useSelector(selectCurrentView);
+  const { currentView, setCurrentView } = useUiStore();
 
   const handleNavigation = (viewId: string) => {
-    dispatch(setCurrentView(viewId));
+    setCurrentView(viewId as any);
   };
 
   const handleBackToStore = () => {

@@ -1,9 +1,6 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../redux/slices/auth/authThunk';
-import { selectAuthStatus, selectAuthError } from '../redux/slices/auth/authSlice';
-import type { AppDispatch } from '../redux/store';
+import { useAuthStore } from '../zustand/auth/authStore';
 import RegisterErrorAlert from './RegisterErrorAlert';
 import RegisterUsernameField from './RegisterUsernameField';
 import RegisterEmailField from './RegisterEmailField';
@@ -11,10 +8,11 @@ import RegisterPasswordField from './RegisterPasswordField';
 import RegisterSubmitButton from './RegisterSubmitButton';
 
 export default function RegisterFormContainer() {
-    const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
-    const status = useSelector(selectAuthStatus);
-    const error = useSelector(selectAuthError);
+    const status = useAuthStore((state) => state.status);
+    const error = useAuthStore((state) => state.error);
+    const registerUser = useAuthStore((state) => state.registerUser);
+    
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -23,10 +21,11 @@ export default function RegisterFormContainer() {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const result = await dispatch(registerUser(formData as any));
-        if (registerUser.fulfilled.match(result)) {
+        try {
+            await registerUser(formData);
             navigate('/signin');
+        } catch (err) {
+            // handle error smoothly via store state
         }
     };
 

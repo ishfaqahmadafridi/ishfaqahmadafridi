@@ -1,27 +1,26 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setSelectedCategories } from '../redux/slices/uiSlice/uiSlice';
+import { useUiStore } from '../zustand/ui/uiStore';
 import { categories } from '../../assets/categoriesData';
 
 export default function BoysGirlsCategory() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  const handleCategoryClick = (category) => {
-    dispatch(setSelectedCategories(category.subcategories));
+  const setSelectedCategories = useUiStore((state) => state.setSelectedCategories);
+
+  const handleCategoryClick = (cat: any) => {
+    setSelectedCategories([cat.key]);
     navigate('/kids');
   };
-  
+
   return (
-    <div className="bg-white py-16 px-6">
+    <div className="bg-background py-16 px-6">
       <div className="flex justify-between items-center mb-12 max-w-7xl mx-auto">
         <h2 className="text-3xl font-black uppercase tracking-tighter">
           Shop By Boys & Girls Category
         </h2>
         <button
           onClick={() => {
-            dispatch(setSelectedCategories([]));
+            setSelectedCategories([]);
             navigate('/kids');
           }}
           className="text-sm font-bold uppercase tracking-wider hover:underline"

@@ -6,18 +6,41 @@ import WomenFootwear from '../womenfoot/WomenFootwear';
 import ManFootwear from '../manFooterwear/ManFootwear';
 import MenCategory from '../menCategoey/MenCategory';
 import CategorySection from '../actegorysection/CategorySection';
+import ScrollReveal from '../layout/ScrollReveal';
+import { useEffect } from 'react';
+import api from '../../api/client';
 
 export default function Main() {
+    useEffect(() => {
+        // Log view_home activity
+        api.post('/activity/log/', { activity_type: 'view_home' })
+           .catch(err => console.error('Failed to log home view', err));
+    }, []);
+
     return (
         <>
             <Carousel />
-            <CategorySection />
-            <WomenCategory />
-            <WomenFootwear />
-            <MenCategory />
-            <ManFootwear />
-            <BoysGirlsCategory />
-            <FragranceCosmetics />
+            <ScrollReveal animation="fade-up">
+                <CategorySection />
+            </ScrollReveal>
+            <ScrollReveal animation="fade-left" delay={100}>
+                <WomenCategory />
+            </ScrollReveal>
+            <ScrollReveal animation="fade-right" delay={200}>
+                <WomenFootwear />
+            </ScrollReveal>
+            <ScrollReveal animation="fade-left" delay={100}>
+                <MenCategory />
+            </ScrollReveal>
+            <ScrollReveal animation="fade-right" delay={200}>
+                <ManFootwear />
+            </ScrollReveal>
+            <ScrollReveal animation="fade-up">
+                <BoysGirlsCategory />
+            </ScrollReveal>
+            <ScrollReveal animation="fade-scale" delay={300}>
+                <FragranceCosmetics />
+            </ScrollReveal>
         </>
     );
 }

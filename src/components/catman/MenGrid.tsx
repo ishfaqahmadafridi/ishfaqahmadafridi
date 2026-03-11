@@ -1,18 +1,23 @@
-import { useSelector } from 'react-redux';
-import { selectMenCategories, selectMenBackendProducts } from '../redux/slices/men/menSlice';
-import { selectSelectedCategory } from '../redux/slices/uiSlice/uiSlice';
+import { useEffect } from 'react';
 import MenSection from './MenSection';
+import { useUiStore } from '../zustand/ui/uiStore';
+import { useCategoryStore } from '../zustand/category/categoryStore';
 
 export default function MenGrid() {
-    const categories = useSelector(selectMenCategories);
-    const selectedCategory = useSelector(selectSelectedCategory);
-    const backendProducts = useSelector(selectMenBackendProducts);
+    const selectedCategory = useUiStore((state) => state.selectedCategory);
+    const categories = useCategoryStore((state) => state.localCategories.men) || [];
+    
+    const backendProducts = useCategoryStore((state) => state.backendProducts['men']) || [];
+    const fetchProducts = useCategoryStore((state) => state.fetchProducts);
+    
+    useEffect(() => {
+        fetchProducts('men');
+    }, [fetchProducts]);
 
     const displayCategories = selectedCategory
         ? categories.filter(cat => cat.id === selectedCategory)
         : categories;
 
-    // Helper function to match backend products to frontend categories
     const getBackendProductsForCategory = (categoryName: string) => {
         const normalizedName = categoryName.toLowerCase();
         return backendProducts.filter((product: any) => {

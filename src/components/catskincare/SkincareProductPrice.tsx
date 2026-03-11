@@ -4,7 +4,7 @@ import type { SkincareProductPriceProps } from '../interfaces/catskincare/catski
 export default function SkincareProductPrice({ price, originalPrice }: SkincareProductPriceProps) {
     return (
         <div className="flex items-center gap-3">
-            <span className={`text-base md:text-xl font-black ${originalPrice ? 'text-emerald-600' : 'text-gray-900'}`}>
+            <span className={`text-base md:text-xl font-black ${originalPrice ? 'text-emerald-600' : 'text-foreground'}`}>
                 {formatPrice(price)}
             </span>
             {originalPrice && (

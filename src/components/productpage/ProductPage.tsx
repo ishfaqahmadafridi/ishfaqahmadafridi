@@ -1,19 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectSelectedProduct } from '../redux/slices/uiSlice/uiSlice';
-import { selectSelectedSize, selectQuantity } from '../redux/slices/product/productSlice';
-import { addToCart } from '../redux/slices/cart/cartSlice';
+import { useUiStore } from '../zustand/ui/uiStore';
+import { useProductStore } from '../zustand/product/productStore';
+import { useCartStore } from '../zustand/cart/cartStore';
 import BackButton from './BackButton';
 import ProductImages from './ProductImages';
 import ProductInfo from './ProductInfo';
 import ProductDetails from './ProductDetails';
 
 export default function ProductPage() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const product = useSelector(selectSelectedProduct);
-    const selectedSize = useSelector(selectSelectedSize);
-    const quantity = useSelector(selectQuantity);
+    const addToCart = useCartStore((state) => state.addToCart);
+    const product = useUiStore((state) => state.selectedProduct);
+    const selectedSize = useProductStore((state) => state.selectedSize);
+    const quantity = useProductStore((state) => state.quantity);
 
     if (!product) return <div className="pt-24 text-center">Product not found</div>;
 
@@ -26,7 +25,7 @@ export default function ProductPage() {
                     <ProductInfo
                         product={product}
                         onAddToCart={() => {
-                            dispatch(addToCart({ ...product, size: selectedSize, quantity }));
+                            addToCart({ ...product, size: selectedSize, quantity });
                             navigate('/cart');
                         }}
                     />

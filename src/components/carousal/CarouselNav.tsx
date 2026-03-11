@@ -1,22 +1,18 @@
-import { setCurrentIndex } from "../redux/slices/carousal/CarousalSlice";
-import { useSelector, useDispatch } from "react-redux";
 import { carouselImages } from "../../assets/carouselData";
-import { RootState } from "../redux/store";
-
-
+import { useCarouselStore } from "../zustand/carousel/carouselStore";
 export default function CarouselNav() {
 
-    const dispatch = useDispatch();
+    const currentIndex = useCarouselStore((state) => state.currentIndex);
+    const setCurrentIndex = useCarouselStore((state) => state.setCurrentIndex);
 
-    const currentIndex = useSelector((state: RootState) => state.carousel.currentIndex);
     const goPrev = () => {
       const newIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
-      dispatch(setCurrentIndex(newIndex));
+      setCurrentIndex(newIndex);
     };
   
     const goNext = () => {
       const newIndex = (currentIndex + 1) % carouselImages.length;
-      dispatch(setCurrentIndex(newIndex));
+      setCurrentIndex(newIndex);
     };
 
   return (

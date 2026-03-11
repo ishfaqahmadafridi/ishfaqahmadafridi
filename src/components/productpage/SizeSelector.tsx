@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedSize, selectSelectedSize } from '../redux/slices/product/productSlice';
+import { useProductStore } from '../zustand/product/productStore';
 import type { SizeSelectorProps } from '../interfaces/productpage/productpageInterface';
 
 export default function SizeSelector({ sizes }: SizeSelectorProps) {
-    const dispatch = useDispatch();
-    const currentSize = useSelector(selectSelectedSize);
+    const setSelectedSize = useProductStore((state) => state.setSelectedSize);
+    const currentSize = useProductStore((state) => state.selectedSize);
     return (
         <div className="space-y-3">
             <label className="text-xs font-black uppercase tracking-widest text-gray-500">Select Size</label>
@@ -12,8 +11,8 @@ export default function SizeSelector({ sizes }: SizeSelectorProps) {
                 {sizes.map(size => (
                     <button
                         key={size}
-                        onClick={() => dispatch(setSelectedSize(size))}
-                        className={`w-12 h-12 flex items-center justify-center border-2 transition-all font-bold ${currentSize === size ? 'border-black bg-black text-white' : 'border-gray-200 text-gray-600 hover:border-gray-400'}`}
+                        onClick={() => setSelectedSize(size)}
+                        className={`w-12 h-12 flex items-center justify-center border-2 transition-all font-bold ${currentSize === size ? 'border-foreground bg-foreground text-background' : 'border-border text-muted-foreground hover:border-foreground'}`}
                     >
                         {size}
                     </button>

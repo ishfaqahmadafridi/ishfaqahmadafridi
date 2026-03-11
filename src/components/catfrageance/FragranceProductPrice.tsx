@@ -4,7 +4,7 @@ import type { FragranceProductPriceProps } from '../interfaces/catfragrance/catf
 export default function FragranceProductPrice({ price, originalPrice }: FragranceProductPriceProps) {
     return (
         <div className="flex items-center gap-3">
-            <span className={`text-base md:text-xl font-black ${originalPrice ? 'text-amber-600' : 'text-gray-900'}`}>
+            <span className={`text-base md:text-xl font-black ${originalPrice ? 'text-amber-600' : 'text-foreground'}`}>
                 {formatPrice(price)}
             </span>
             {originalPrice && (

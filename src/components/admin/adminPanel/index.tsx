@@ -1,17 +1,13 @@
-import { useSelector } from 'react-redux';
-import { selectCurrentView } from '../../redux/slices/admin/adminSlice';
-import { selectIsAuthenticated } from '../../redux/slices/auth/authSlice';
+import { useUiStore } from '../../zustand/admin/uiStore';
+import { useAuthStore } from '../../zustand/auth/authStore';
 import AdminSidebar from '../adminSidebar/index';
 import AccessDenied from './AccessDenied';
 import AdminHeader from './AdminHeader';
 import AdminContent from './AdminContent';
 
 export default function AdminPanel() {
-  const currentView = useSelector(selectCurrentView);
-  const isAuthenticated = useSelector(selectIsAuthenticated);
-
-  const hasToken = !!localStorage.getItem('access_token');
-  const canAccess = isAuthenticated || hasToken;
+  const { currentView } = useUiStore();
+  const canAccess = useAuthStore((state) => state.isAuthenticated);
 
   if (!canAccess) {
     return <AccessDenied />;

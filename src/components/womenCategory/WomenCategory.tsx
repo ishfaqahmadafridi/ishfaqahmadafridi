@@ -1,19 +1,18 @@
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setSelectedCategory } from '../redux/slices/uiSlice/uiSlice';
+import { useUiStore } from '../zustand/ui/uiStore';
+
 import WomenCategoryGrid from './WomenCategoryGrid';
 
 export default function WomenCategory() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const setSelectedCategory = useUiStore((state) => state.setSelectedCategory);
 
   const handleViewAll = () => {
-    dispatch(setSelectedCategory(null));
+    setSelectedCategory(null);
     navigate('/women');
   };
-
   return (
-    <div className="bg-white py-16 px-6">
+    <div className="bg-background py-16 px-6">
       <div className="flex justify-between items-center mb-12 max-w-7xl mx-auto">
         <h2 className="text-3xl font-black uppercase tracking-tighter">
           Shop By Women Category

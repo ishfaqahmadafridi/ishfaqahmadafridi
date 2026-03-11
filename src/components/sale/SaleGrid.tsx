@@ -1,6 +1,5 @@
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setSelectedProduct } from '../redux/slices/uiSlice/uiSlice';
+import { useUiStore } from '../zustand/ui/uiStore';
 import { menCategories } from '../../assets/menData';
 import { womenCategories } from '../../assets/womenData';
 import { categories as kidsCategories } from '../../assets/catBoysGData';
@@ -12,7 +11,7 @@ import type { SaleProduct, CategoryWithProducts } from '../interfaces/sale/saleI
 import SaleProductCard from './SaleProductCard';
 
 export default function SaleGrid() {
-  const dispatch = useDispatch();
+  const setSelectedProduct = useUiStore((state) => state.setSelectedProduct);
   const navigate = useNavigate();
 
   // Gather all products from all categories
@@ -45,7 +44,7 @@ export default function SaleGrid() {
   addProductsFromCategories(womenFootwearCategories, 'Women Footwear');
 
   const handleProductClick = (product: SaleProduct) => {
-    dispatch(setSelectedProduct(product));
+    setSelectedProduct(product);
     navigate(`/product/${product.id}`);
   };
 

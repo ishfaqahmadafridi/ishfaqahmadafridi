@@ -1,10 +1,11 @@
 export interface MakeupProduct {
-    id: number;
+    id: number | string;
     name: string;
     image: string;
     price: number;
     originalPrice?: number;
     discount?: string;
+    isBackend?: boolean;
 }
 
 export interface MakeupCategory {
@@ -49,6 +50,7 @@ export interface MakeupHeaderProps {
 
 export interface MakeupSectionProps {
     category: MakeupCategory;
+    backendProducts?: any[];
 }
 
 export interface MakeupProductsGridProps {

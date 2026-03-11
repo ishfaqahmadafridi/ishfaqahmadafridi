@@ -5,14 +5,14 @@ User activity logging and newsletter subscription (public endpoints)
 
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 
 from ..models import UserActivity, Subscription
 
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def log_user_activity(request):
     """
     Log user activity for analytics
@@ -34,7 +34,7 @@ def log_user_activity(request):
         )
     
     # Validate activity type
-    valid_types = ['login', 'logout', 'view_product', 'add_to_cart', 'purchase', 'search']
+    valid_types = ['login', 'logout', 'view_product', 'add_to_cart', 'view_cart', 'purchase', 'search', 'view_category', 'view_home', 'view_landing', 'view_signin', 'view_signup']
     if activity_type not in valid_types:
         return Response(
             {'error': f'Invalid activity_type. Valid options: {", ".join(valid_types)}'},
@@ -50,12 +50,7 @@ def log_user_activity(request):
             metadata=metadata
         )
         
-        return Response({
-            'status': 'logged',
-            'activity_id': activity.id,
-            'activity_type': activity_type,
-            'timestamp': activity.timestamp
-        })
+        return Response({'status': 'success'}, status=status.HTTP_200_OK)
     except Exception as e:
         return Response(
             {'error': f'Failed to log activity: {str(e)}'},

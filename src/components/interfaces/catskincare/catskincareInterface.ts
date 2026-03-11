@@ -1,10 +1,11 @@
 export interface SkincareProduct {
-    id: number;
+    id: number | string;
     name: string;
     image: string;
     price: number;
     originalPrice?: number;
     discount?: string;
+    isBackend?: boolean;
 }
 
 export interface SkincareCategory {
@@ -49,6 +50,7 @@ export interface SkincareHeaderProps {
 
 export interface SkincareSectionProps {
     category: SkincareCategory;
+    backendProducts?: any[];
 }
 
 export interface SkincareProductsGridProps {

@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSalesAnalytics, fetchUserAnalytics, fetchTopSellingProducts } from '../../redux/slices/admin/adminThunks';
-import { selectSalesAnalytics, selectUserAnalytics, selectTopProducts, selectAnalyticsLoading } from '../../redux/slices/admin/adminSlice';
-import type { AppDispatch } from '../../redux/store';
+import { useShallow } from 'zustand/react/shallow';
+import { useAnalyticsStore } from '../../zustand/admin/analyticsStore';
 import AnalyticsHeader from './AnalyticsHeader';
 import SalesChart from './SalesChart';
 import UserActivityChart from './UserActivityChart';
@@ -10,17 +8,31 @@ import TopProductsChart from './TopProductsChart';
 import LoadingSpinner from './LoadingSpinner';
 
 export default function AdminAnalytics() {
-  const dispatch = useDispatch<AppDispatch>();
-  const salesAnalytics = useSelector(selectSalesAnalytics);
-  const userAnalytics = useSelector(selectUserAnalytics);
-  const topProducts = useSelector(selectTopProducts) as any[];
-  const loading = useSelector(selectAnalyticsLoading);
+  const {
+    salesAnalytics,
+    userAnalytics,
+    topProducts,
+    analyticsLoading: loading,
+    fetchSalesAnalytics,
+    fetchUserAnalytics,
+    fetchTopSellingProducts,
+  } = useAnalyticsStore(
+    useShallow((s) => ({
+      salesAnalytics: s.salesAnalytics,
+      userAnalytics: s.userAnalytics,
+      topProducts: s.topProducts,
+      analyticsLoading: s.analyticsLoading,
+      fetchSalesAnalytics: s.fetchSalesAnalytics,
+      fetchUserAnalytics: s.fetchUserAnalytics,
+      fetchTopSellingProducts: s.fetchTopSellingProducts,
+    }))
+  );
 
   useEffect(() => {
-    dispatch(fetchSalesAnalytics() as any);
-    dispatch(fetchUserAnalytics() as any);
-    dispatch(fetchTopSellingProducts() as any);
-  }, [dispatch]);
+    fetchSalesAnalytics();
+    fetchUserAnalytics();
+    fetchTopSellingProducts();
+  }, [fetchSalesAnalytics, fetchUserAnalytics, fetchTopSellingProducts]);
 
   if (loading) {
     return <LoadingSpinner />;

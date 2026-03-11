@@ -1,7 +1,7 @@
 import InventoryStatCard from './InventoryStatCard';
 import type { InventoryStatsProps } from '../../interfaces/admin/adminProducts/adminProductsInterface';
 
-export default function InventoryStats({ stats }: InventoryStatsProps) {
+export default function InventoryStats({ stats }: { stats: InventoryStatsProps | null }) {
   const cards = [
     { label: 'Total Products', value: stats?.total_products || 0, color: 'bg-blue-500' },
     { label: 'In Stock', value: stats?.in_stock || 0, color: 'bg-green-500' },

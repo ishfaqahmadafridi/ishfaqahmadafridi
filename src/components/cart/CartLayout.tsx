@@ -1,13 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectCartItems, selectCartSubtotal, selectCartTotalQuantity } from '../redux/slices/cart/cartSlice';
+
 import CartList from './CartList';
 import CartSummary from './CartSummary';
+import { useCartStore } from '../zustand/cart/cartStore';
 
 export default function CartLayout() {
-    const items = useSelector(selectCartItems);
-    const subtotal = useSelector(selectCartSubtotal);
-    const totalQuantity = useSelector(selectCartTotalQuantity);
+    const items = useCartStore((state) => state.items);
+    const subtotal = useCartStore((state) => state.getCartSubtotal());
+    const totalQuantity = useCartStore((state) => state.getCartTotalQuantity());
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">

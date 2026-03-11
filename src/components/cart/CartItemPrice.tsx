@@ -5,10 +5,10 @@ import { CartItemPriceProps } from '../interfaces/cart/cartInterface';
 export default function CartItemPrice({ quantity, price, totalPrice }: CartItemPriceProps) {
     return (
         <>
-            <div className="hidden md:block text-sm text-gray-600 font-medium px-4 text-center">
+            <div className="hidden md:block text-sm text-muted-foreground font-medium px-4 text-center">
                 {quantity} × {formatPrice(price)}
             </div>
-            <div className="text-sm md:text-lg font-bold text-gray-900 text-right min-w-20 md:min-w-30">
+            <div className="text-sm md:text-lg font-bold text-foreground text-right min-w-20 md:min-w-30">
                 {formatPrice(totalPrice)}
             </div>
         </>

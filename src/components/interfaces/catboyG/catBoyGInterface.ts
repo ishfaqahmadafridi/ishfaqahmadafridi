@@ -1,10 +1,11 @@
 export interface CatBoyGProduct {
-    id: number;
+    id: number | string;
     name: string;
     price: number;
     image: string;
     originalPrice?: number;
     discount?: string;
+    isBackend?: boolean;
 }
 
 export interface CatBoyGCategory {

@@ -1,10 +1,9 @@
-import { useDispatch } from 'react-redux';
-import { updateOrderStatus } from '../../redux/slices/admin/adminThunks';
+import { useOrdersStore } from '../../zustand/admin/ordersStore';
 import type { OrderStatusSelectProps } from '../../interfaces/admin/adminOrders/adminOrdersInterface';
 import type { ChangeEvent } from 'react';
 
 export default function OrderStatusSelect({ order }: OrderStatusSelectProps) {
-  const dispatch = useDispatch();
+  const { updateOrderStatus } = useOrdersStore();
 
   const statusColors: Record<string, string> = {
     pending: 'text-yellow-600 bg-yellow-50',
@@ -15,7 +14,7 @@ export default function OrderStatusSelect({ order }: OrderStatusSelectProps) {
   };
 
   const handleStatusChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    (dispatch as any)((updateOrderStatus as any)({ id: order.id, status: e.target.value }));
+    updateOrderStatus(order.id, e.target.value);
   };
 
   return (
