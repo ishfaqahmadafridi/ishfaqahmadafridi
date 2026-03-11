@@ -330,6 +330,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
+whats
+
 - React community for amazing tools and libraries
 - Django REST Framework for robust API development
 - Tailwind CSS for utility-first styling
